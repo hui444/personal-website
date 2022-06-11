@@ -1,9 +1,16 @@
-const theme = {
+import { DefaultTheme } from 'styled-components'
+
+const theme: DefaultTheme = {
   colors: {
-    powderWhite: '#FFFDF9',
-    persianGreen: '#06B49A',
-    lightBlue: '#AFDBD2',
-    onyx: '#36313D',
+    blue: {
+      100: '#BEE0F2',
+      300: '#374785',
+      400: '#151E42',
+    },
+    accent: {
+      yellow: '#F8E9A1',
+      red: '#F76C6C',
+    },
   },
   fonts: ['sans-serif', 'Roboto'],
   fontSizes: {
