@@ -11,6 +11,10 @@ const theme: DefaultTheme = {
       yellow: '#F8E9A1',
       red: '#F76C6C',
     },
+    neutral: {
+      100: '#FFF',
+      600: '#000',
+    },
   },
   fonts: ['sans-serif', 'Roboto'],
   fontSizes: {

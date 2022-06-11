@@ -13,6 +13,10 @@ declare module 'styled-components' {
         yellow: hexCode
         red: hexCode
       }
+      neutral: {
+        100: hexCode
+        600: hexCode
+      }
     }
     fonts: string[]
     fontSizes: {

@@ -5,7 +5,17 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-inline: 1rem;
+  padding: 2rem 1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: white;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
 `
 
 export const ConstructionText = styled.p`
