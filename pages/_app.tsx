@@ -21,13 +21,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        {/* {isVisible && isBreakpoint ? (
+        {isVisible && isBreakpoint ? (
           <Construction isVisible={isVisible} setIsVisible={setIsVisible} />
-        ) : ( */}
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-        {/* )} */}
+        ) : (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        )}
       </ThemeProvider>
     </>
   )
