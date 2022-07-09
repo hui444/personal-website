@@ -1,13 +1,18 @@
 import styled from 'styled-components'
+import { NAV_HEIGHT } from 'common/constants'
 
 export const StyledNav = styled.nav`
-  width: 100vw;
-  height: 3rem;
+  width: 100%;
+  height: ${NAV_HEIGHT};
   background: ${(props) => props.theme.colors.blue[300]};
   padding: 5px 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 300;
 `
 
 export const StyledUl = styled.ul`

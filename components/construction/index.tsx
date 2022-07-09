@@ -1,12 +1,16 @@
-import { useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import Lottie from 'react-lottie'
 
 import constructionAnimationData from 'public/lotties/website-under-construction.json'
 import { ConstructionText, MainContainer, StyledButton } from './styles'
 
-const Construction = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(true)
-
+const Construction = ({
+  isVisible,
+  setIsVisible,
+}: {
+  isVisible: boolean
+  setIsVisible: Dispatch<SetStateAction<boolean>>
+}) => {
   const options = {
     loop: true,
     animationData: constructionAnimationData,
