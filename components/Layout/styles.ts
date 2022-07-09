@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { BREAKPOINT, NAV_HEIGHT } from 'common/constants'
+import { BREAKPOINT, NAV_HEIGHT, MAX_CONTENT_WIDTH } from 'common/constants'
 
 export const MainContainer = styled.div<{ isBreakpoint: boolean }>`
   width: ${(props) => (props.isBreakpoint ? `${BREAKPOINT}px` : '100vw')};
@@ -9,5 +9,7 @@ export const MainContainer = styled.div<{ isBreakpoint: boolean }>`
 `
 
 export const StyledMain = styled.main`
-  padding-top: ${NAV_HEIGHT};
+  padding: calc(${NAV_HEIGHT} + 1rem) 2rem 1rem;
+  margin-inline: auto;
+  max-width: ${MAX_CONTENT_WIDTH};
 `
