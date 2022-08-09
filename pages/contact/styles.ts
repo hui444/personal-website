@@ -10,6 +10,7 @@ export const StyledText = styled.p`
   display: flex;
   align-items: center;
   margin: 0;
+  ${(props) => props.theme.typo.body};
 `
 
 export const FormContainer = styled.form`

@@ -13,12 +13,15 @@ const Nav = () => {
     <StyledNav>
       <Logo />
       <StyledUl>
-        {NAV_LINKS.map((navItem) => (
+        {NAV_LINKS.map((navItem, index) => (
           <NavItem
             name={navItem.label}
             to={navItem.path}
             key={navItem.id}
-            isActive={router.asPath === navItem.path}
+            isActive={
+              (router.asPath === '/' && index === 0) ||
+              router.asPath === navItem.path
+            }
           />
         ))}
       </StyledUl>

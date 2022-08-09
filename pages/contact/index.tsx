@@ -1,4 +1,5 @@
 import InfoLink from 'components/InfoLink'
+import Section from 'components/Section'
 
 import GitHubIcon from '../../assets/icons/github-blue.svg'
 import LinkedInIcon from '../../assets/icons/linkedin-blue.svg'
@@ -8,8 +9,7 @@ import { ContentContainer, StyledText, FormContainer } from './styles'
 
 const Contact = () => {
   return (
-    <>
-      <h1>Contact Me!</h1>
+    <Section title="Contact Me!">
       <ContentContainer>
         <div>
           <StyledText>
@@ -45,7 +45,7 @@ const Contact = () => {
           </StyledText>
         </FormContainer>
       </ContentContainer>
-    </>
+    </Section>
   )
 }
 
