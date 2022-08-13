@@ -12,12 +12,12 @@ const InfoSection = ({
   sectionInfo,
 }: {
   color?: 'Blue-Yellow' | 'Yellow-Blue'
-  sectionInfo: InfoSectionProps[]
+  sectionInfo?: InfoSectionProps[]
 }) => (
   <ContentContainer>
     <VerticalLine />
     <InfoContainer>
-      {sectionInfo.map((item, index) => (
+      {sectionInfo?.map((item, index) => (
         <InfoCard
           datesColor={color === 'Blue-Yellow' ? 'blue' : 'yellow'}
           infoColor={color === 'Blue-Yellow' ? 'yellow' : 'blue'}

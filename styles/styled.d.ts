@@ -19,6 +19,10 @@ declare module 'styled-components' {
         300: hexCode
         600: hexCode
       }
+      state: {
+        error: hexCode
+        success: hexCode
+      }
     }
     fonts: string[]
     fontSizes: {
@@ -33,6 +37,7 @@ declare module 'styled-components' {
       h3: FlattenSimpleInterpolation
       body: FlattenSimpleInterpolation
       'body--bold': FlattenSimpleInterpolation
+      form: FlattenSimpleInterpolation
     }
   }
 }

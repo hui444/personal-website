@@ -140,11 +140,11 @@ export const ArrowContainer = styled.div<{
   height: 18px;
 `
 
-export const Description = styled.ul<{ visible: boolean }>`
+const description = css<{ visible: boolean }>`
   ${(props) =>
     props.visible
       ? css`
-          max-height: 50vh;
+          max-height: 100vh;
         `
       : css`
           max-height: 0px;
@@ -152,11 +152,19 @@ export const Description = styled.ul<{ visible: boolean }>`
   transition: max-height 300ms ease-in-out;
 
   overflow: hidden;
-  margin: ${(props) => (props.visible ? '0 0 8px 0' : '0')};
-  padding-inline-start: 20px;
+  margin: ${(props) => (props.visible ? '0 0 8px 0' : 0)};
   ${(props) => props.theme.typo.body};
   color: ${(props) => props.theme.colors.neutral[600]};
   align-self: start;
+`
+
+export const Description = styled.div<{ visible: boolean }>`
+  ${description}
+`
+
+export const DescriptionList = styled.ul<{ visible: boolean }>`
+  padding-inline-start: 20px;
+  ${description}
 `
 
 export const BoldText = styled.label`

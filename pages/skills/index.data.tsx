@@ -23,9 +23,16 @@ import Swift from '../../assets/icons/swift.svg'
 // tools
 import React from '../../assets/icons/react.svg'
 import Redux from '../../assets/icons/redux.svg'
+import NodeJS from '../../assets/icons/nodejs.svg'
 import PostgreSQL from '../../assets/icons/postgresql.svg'
 import ASPNET from '../../assets/icons/net-framework.svg'
 import SASS from '../../assets/icons/sass.svg'
+
+export enum ANIMATION {
+  ZOOM = 'zoom',
+  SPIN = 'spin',
+  SHAKE = 'shake',
+}
 
 type Skill = {
   id: string
@@ -35,6 +42,7 @@ type Skill = {
     icon: {
       default: React.ReactElement
       animated?: React.ReactElement
+      animation?: ANIMATION
     }
     label: string
   }[]
@@ -48,12 +56,14 @@ const SKILLS: Skill[] = [
       {
         icon: {
           default: <CSS3 />,
+          animation: ANIMATION.ZOOM,
         },
         label: 'CSS 3',
       },
       {
         icon: {
           default: <HTML5 />,
+          animation: ANIMATION.ZOOM,
         },
         label: 'HTML 5',
       },
@@ -83,6 +93,7 @@ const SKILLS: Skill[] = [
       {
         icon: {
           default: <TypeScript />,
+          animation: ANIMATION.ZOOM,
         },
         label: 'TypeScript',
       },
@@ -121,6 +132,7 @@ const SKILLS: Skill[] = [
       {
         icon: {
           default: <Swift />,
+          animation: ANIMATION.SHAKE,
         },
         label: 'Swift',
       },
@@ -139,12 +151,21 @@ const SKILLS: Skill[] = [
       {
         icon: {
           default: <Redux />,
+          animation: ANIMATION.SHAKE,
         },
         label: 'Redux',
       },
       {
         icon: {
+          default: <NodeJS />,
+          animation: ANIMATION.ZOOM,
+        },
+        label: 'NodeJS',
+      },
+      {
+        icon: {
           default: <PostgreSQL />,
+          animation: ANIMATION.ZOOM,
         },
         label: 'PostgreSQL',
       },
@@ -157,6 +178,7 @@ const SKILLS: Skill[] = [
       {
         icon: {
           default: <SASS />,
+          animation: ANIMATION.SHAKE,
         },
         label: 'SASS/SCSS',
       },

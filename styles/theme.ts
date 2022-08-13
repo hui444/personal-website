@@ -17,6 +17,10 @@ const theme: DefaultTheme = {
       300: '#3C3C3C',
       600: '#000',
     },
+    state: {
+      error: '#D32F2F',
+      success: '#198155',
+    },
   },
   fonts: ['Poppins', 'sans-serif', 'Roboto'],
   fontSizes: {
@@ -52,14 +56,18 @@ const theme: DefaultTheme = {
       font-size: 16px;
       font-weight: 400;
       line-height: 1.5;
-      letter-spacing: 0em;
     `,
     'body--bold': css`
       font-family: Poppins;
       font-size: 16px;
       font-weight: 600;
       line-height: 1.5;
-      letter-spacing: 0em;
+    `,
+    form: css`
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
     `,
   },
 }

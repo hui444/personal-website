@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { GlobalStyle } from '@styles/global'
 import theme from '@styles/theme'
@@ -12,6 +12,10 @@ import { BREAKPOINT } from 'common/constants'
 function MyApp({ Component, pageProps }: AppProps) {
   const [isVisible, setIsVisible] = useState<boolean>(true)
   const isBreakpoint = useMediaQuery(BREAKPOINT)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <>

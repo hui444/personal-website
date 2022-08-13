@@ -17,4 +17,8 @@ export const InfoContainer = styled.div`
   > div + div {
     margin-top: 3rem;
   }
+
+  :last-child {
+    border-bottom: 3rem solid ${(props) => props.theme.colors.pageBackground};
+  }
 `

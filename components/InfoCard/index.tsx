@@ -12,6 +12,7 @@ import {
   ArrowContainer,
   Filler,
   DatesBackground,
+  DescriptionList,
 } from './styles'
 import Arrow from '../../assets/arrow/chevron-down.svg'
 
@@ -20,7 +21,8 @@ export interface InfoCardProps {
   subtitle: string
   dates: string
   description?: {
-    text: React.ReactNode[]
+    element?: React.ReactNode
+    text?: React.ReactNode[]
     skills?: string
   }
 }
@@ -65,19 +67,24 @@ const InfoCard = ({
           <Subtitle>{info.subtitle}</Subtitle>
         </TitleSection>
         <Body color={infoColor}>
-          {info.description && (
-            <Description visible={isExpanded}>
-              {info.description.text.map((text, index) => (
-                <li key={index}>{text}</li>
-              ))}
-              {info.description.skills && (
-                <li key={`${info.title}__relevant-skills`}>
-                  <BoldText>Relevant skills: </BoldText>
-                  {info.description.skills}
-                </li>
-              )}
-            </Description>
-          )}
+          {info.description &&
+            (info.description.element ? (
+              <Description visible={isExpanded}>
+                {info.description.element}
+              </Description>
+            ) : (
+              <DescriptionList visible={isExpanded}>
+                {info.description.text?.map((text, index) => (
+                  <li key={index}>{text}</li>
+                ))}
+                {info.description.skills && (
+                  <li key={`${info.title}__relevant-skills`}>
+                    <BoldText>Relevant skills: </BoldText>
+                    {info.description.skills}
+                  </li>
+                )}
+              </DescriptionList>
+            ))}
           <ArrowContainer
             disabled={disabled}
             isExpanded={isExpanded}
