@@ -1,5 +1,6 @@
-import { ANIMATION } from '@pages/skills/index.data'
 import styled, { css, keyframes } from 'styled-components'
+
+import { ANIMATION } from 'common/types'
 
 export const MainContainer = styled.div`
   display: flex;

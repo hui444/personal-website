@@ -1,18 +1,8 @@
-import React from 'react'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { StyledLink } from './styles'
-type Work = {
-  id: string
-  title: string
-  company: string
-  dates: string
-  description?: {
-    text: React.ReactNode[]
-    skills: string
-  }
-}
+import { WorkType } from 'common/types'
 
-const WORK_EXPERIENCES: Work[] = [
+const WORK_EXPERIENCES: WorkType[] = [
   {
     id: 'work-4',
     title: 'Software Development Intern, Map Creator (Front-End)',
@@ -54,36 +44,48 @@ const WORK_EXPERIENCES: Work[] = [
     company: 'NUS Raffles Hall Developers (RHDevs)',
     dates: 'Aug 2020 - Apr 2022',
     description: {
-      text: [
-        <React.Fragment key="work-experience-1__RHApp">
-          Pioneered the development of a Progressive Web Application in the
-          frontend, serving some 400 residents (
-          <StyledLink
-            href="http://www.rhapp.lol"
-            target="_blank"
-            rel="noreferrer"
-          >
-            RHapp
-          </StyledLink>
-          )
-        </React.Fragment>,
-        'Collaborated with backend developers and designers to build the web application',
-        'Led a team to create a comprehensive feature to help ease supper collation amongst hall resident (March - July 2021)',
-        <React.Fragment key="work-experience-1__training-website">
-          Maintained a website to facilitate training of new members (
-          <StyledLink
-            href="https://rhdevs-frontend-training-ay-2122.vercel.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            RHDevs training website
-          </StyledLink>
-          )
-        </React.Fragment>,
+      textWithLink: [
+        {
+          text: 'Pioneered the development of a Progressive Web Application in the frontend, serving some 400 residents (<a>; <a>)',
+          anchor: [
+            {
+              label: 'RHapp',
+              link: 'http://www.rhapp.lol',
+            },
+            {
+              label: 'GitHub link',
+              link: 'https://github.com/rhdevs/rhapp',
+            },
+          ],
+        },
+        {
+          text: 'Collaborated with backend developers and designers to build the web application',
+        },
+        {
+          text: 'Led a team to create a comprehensive feature to help ease supper collation amongst hall resident (March - July 2021)',
+        },
+        {
+          text: 'Maintained a website to facilitate training of new members (<a>; <a>)',
+          anchor: [
+            {
+              label: 'RHDevs training website',
+              link: 'https://rhdevs-frontend-training-ay-2122.vercel.app/',
+            },
+            {
+              label: 'GitHub link',
+              link: 'https://github.com/rhdevs/rhdevs-frontend-training-AY2122',
+            },
+          ],
+        },
       ],
       skills: 'TypeScript, React, Redux, CSS (styled-components), Git, Figma',
     },
   },
 ]
 
-export default WORK_EXPERIENCES
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<WorkType[]>
+) {
+  res.status(200).json(WORK_EXPERIENCES)
+}

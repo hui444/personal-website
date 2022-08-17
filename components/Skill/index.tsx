@@ -1,4 +1,5 @@
-import { ANIMATION } from '@pages/skills/index.data'
+import { ANIMATION } from 'common/types'
+
 import { MainContainer, StyledIcon } from './styles'
 
 const Skill = ({

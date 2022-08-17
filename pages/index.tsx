@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next/types'
 import Head from 'next/head'
 
 const Home: NextPage = () => {

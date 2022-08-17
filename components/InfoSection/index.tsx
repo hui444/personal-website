@@ -1,11 +1,6 @@
-import InfoCard, { InfoCardProps } from 'components/InfoCard'
+import { InfoSectionProps } from 'common/types'
+import InfoCard, { CardColors } from 'components/InfoCard'
 import { ContentContainer, InfoContainer, VerticalLine } from './styles'
-
-interface InfoSectionProps {
-  id: string
-  info: InfoCardProps
-  hasFade?: boolean
-}
 
 const InfoSection = ({
   color,
@@ -19,13 +14,22 @@ const InfoSection = ({
     <InfoContainer>
       {sectionInfo?.map((item, index) => (
         <InfoCard
-          datesColor={color === 'Blue-Yellow' ? 'blue' : 'yellow'}
-          infoColor={color === 'Blue-Yellow' ? 'yellow' : 'blue'}
+          datesColor={
+            color === 'Blue-Yellow' ? CardColors.BLUE : CardColors.YELLOW
+          }
+          infoColor={
+            color === 'Blue-Yellow' ? CardColors.YELLOW : CardColors.BLUE
+          }
           key={item.id}
           info={item.info}
           isEnd={index === sectionInfo.length - 1}
           isDefaultExpanded={
-            index === sectionInfo.findIndex((i) => i.info.description)
+            index ===
+            sectionInfo.findIndex(
+              (i) =>
+                i.info.description &&
+                Object.values(i.info.description).some((d) => d)
+            )
           }
           hasBottomFade={item?.hasFade}
         />

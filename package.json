@@ -12,6 +12,7 @@
     "antd": "^4.22.4",
     "axios": "^0.27.2",
     "next": "12.1.6",
+    "node-fetch": "^3.2.10",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hook-form": "^7.34.0",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "17.0.38",
+    "@types/node-fetch": "^2.6.2",
     "@types/react": "18.0.10",
     "@types/react-dom": "18.0.5",
     "@types/react-lottie": "^1.2.6",

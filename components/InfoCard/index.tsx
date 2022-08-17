@@ -15,19 +15,14 @@ import {
   DescriptionList,
 } from './styles'
 import Arrow from '../../assets/arrow/chevron-down.svg'
+import { StyledH3, StyledList, StyledP } from '@styles/index'
+import { InfoCardProps } from 'common/types'
+import { replaceWithLink } from 'common/helper'
 
-export interface InfoCardProps {
-  title: string
-  subtitle: string
-  dates: string
-  description?: {
-    element?: React.ReactNode
-    text?: React.ReactNode[]
-    skills?: string
-  }
+export enum CardColors {
+  YELLOW = 'yellow',
+  BLUE = 'blue',
 }
-
-export type CardColors = 'yellow' | 'blue'
 
 const InfoCard = ({
   datesColor,
@@ -44,7 +39,9 @@ const InfoCard = ({
   isEnd?: boolean
   hasBottomFade?: boolean
 }) => {
-  const disabled = !info.description
+  const disabled =
+    !info.description ||
+    (info.description && Object.values(info.description).every((d) => !d))
   const [isExpanded, setIsExpanded] = useState<boolean>(
     isDefaultExpanded ?? false
   )
@@ -68,15 +65,32 @@ const InfoCard = ({
         </TitleSection>
         <Body color={infoColor}>
           {info.description &&
-            (info.description.element ? (
+            (info.description.formattedText ? (
               <Description visible={isExpanded}>
-                {info.description.element}
+                <StyledH3>{info.description.formattedText.title}</StyledH3>
+                {info.description.formattedText.content.map((content) => (
+                  <>
+                    {content.title && <StyledP>{content.title}</StyledP>}
+                    <StyledList>
+                      {content.list.map((item: string) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </StyledList>
+                  </>
+                ))}
               </Description>
             ) : (
               <DescriptionList visible={isExpanded}>
-                {info.description.text?.map((text, index) => (
-                  <li key={index}>{text}</li>
-                ))}
+                {info.description.list?.map((text, index) => {
+                  if (typeof text === 'string' || text instanceof String) {
+                    return <li key={index}>{text}</li>
+                  }
+                  return (
+                    <li key={index}>
+                      {replaceWithLink(text.text, text.anchor)}
+                    </li>
+                  )
+                })}
                 {info.description.skills && (
                   <li key={`${info.title}__relevant-skills`}>
                     <BoldText>Relevant skills: </BoldText>

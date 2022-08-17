@@ -13,7 +13,8 @@ import GitHubIcon from '../../assets/icons/github-blue.svg'
 import LinkedInIcon from '../../assets/icons/linkedin-blue.svg'
 import MailIcon from '../../assets/icons/mail-blue.svg'
 
-import { ContentContainer, StyledText, FormContainer } from './styles'
+import { ContentContainer, StyledText, FormContainer } from '@styles/index'
+import 'antd/dist/antd.css'
 
 interface FormInput {
   name: string
@@ -33,7 +34,7 @@ const Contact = () => {
   const sendToEmail = async (data: FormInput) => {
     axios({
       method: 'POST',
-      url: process.env.REACT_APP_FORM_URL,
+      url: process.env.NEXT_PUBLIC_FORM_URL,
       data: data,
     }).catch((err) => {
       console.log('error: ', err)
@@ -55,7 +56,7 @@ const Contact = () => {
   }
 
   const sendToTele = (data: FormInput) => {
-    const TELE_API = `https://api.telegram.org/bot${process.env.REACT_APP_TELE_TOKEN}/sendMessage?chat_id=${process.env.CHAT_ID}`
+    const TELE_API = `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELE_TOKEN}/sendMessage?chat_id=${process.env.NEXT_PUBLIC_CHAT_ID}`
     const text = `
 <b>${data.subject}</b>
 

@@ -28,27 +28,9 @@ import PostgreSQL from '../../assets/icons/postgresql.svg'
 import ASPNET from '../../assets/icons/net-framework.svg'
 import SASS from '../../assets/icons/sass.svg'
 
-export enum ANIMATION {
-  ZOOM = 'zoom',
-  SPIN = 'spin',
-  SHAKE = 'shake',
-}
+import { SkillType, ANIMATION } from 'common/types'
 
-type Skill = {
-  id: string
-  title: string
-  text?: string
-  skill?: {
-    icon: {
-      default: React.ReactElement
-      animated?: React.ReactElement
-      animation?: ANIMATION
-    }
-    label: string
-  }[]
-}
-
-const SKILLS: Skill[] = [
+const SKILLS: SkillType[] = [
   {
     id: 'skill-1',
     title: 'Programming Languages',
