@@ -4,6 +4,7 @@ import fetch from 'node-fetch'
 import InfoSection from 'components/InfoSection'
 import Section from 'components/Section'
 import { WorkType, InfoSectionProps } from 'common/types'
+import { SERVER } from 'common/constants'
 
 const Work: NextPage<{ workInfo: WorkType[] }> = (props) => (
   <Section title="My Work Experience">
@@ -23,12 +24,13 @@ const Work: NextPage<{ workInfo: WorkType[] }> = (props) => (
           },
         })
       )}
+      showDuration
     />
   </Section>
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/api/work')
+  const res = await fetch(`${SERVER}/api/work`)
   const workInfo = await res.json()
   return {
     props: {

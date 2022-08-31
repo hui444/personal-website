@@ -11,6 +11,7 @@ const LINE_WIDTH = '2.5px'
 export const VerticalLine = styled.hr`
   border: ${LINE_WIDTH} solid ${(props) => props.theme.colors.blue[300]};
   margin-right: calc((${DATE_WIDTH} + ${LINE_WIDTH}) / -2);
+  background-color: ${(props) => props.theme.colors.blue[300]};
 `
 
 export const InfoContainer = styled.div`

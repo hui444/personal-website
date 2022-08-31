@@ -7,13 +7,22 @@ const WORK_EXPERIENCES: WorkType[] = [
     id: 'work-4',
     title: 'Software Development Intern, Map Creator (Front-End)',
     company: 'Motional Singapore Pte. Ltd.',
-    dates: 'Aug 2022 - Present',
+    dates: {
+      startDate: {
+        month: 8,
+        year: 2022,
+      },
+      isCurrent: true,
+    },
   },
   {
     id: 'work-3',
     title: 'Frontend Engineer Intern (Trust and Safety Platform)',
     company: 'TikTok Pte. Ltd.',
-    dates: 'May 2022 - Jul 2022',
+    dates: {
+      startDate: { month: 5, year: 2022 },
+      endDate: { month: 7, year: 2022 },
+    },
     description: {
       text: [
         'Implement cross-platform web-based features, user interfaces, Node.js and Golang based services to support community safety in TikTok',
@@ -28,7 +37,10 @@ const WORK_EXPERIENCES: WorkType[] = [
     id: 'work-2',
     title: 'R&D Software Engineering Intern',
     company: 'Makino Asia Pte Ltd',
-    dates: 'Jun 2021 - Jan 2022',
+    dates: {
+      startDate: { month: 6, year: 2021 },
+      endDate: { month: 1, year: 2022 },
+    },
     description: {
       text: [
         'Redesign web pages and assessed UIUX designs for technical feasibility',
@@ -42,7 +54,10 @@ const WORK_EXPERIENCES: WorkType[] = [
     id: 'work-1',
     title: 'Frontend Lead',
     company: 'NUS Raffles Hall Developers (RHDevs)',
-    dates: 'Aug 2020 - Apr 2022',
+    dates: {
+      startDate: { month: 8, year: 2020 },
+      endDate: { month: 5, year: 2022 },
+    },
     description: {
       textWithLink: [
         {

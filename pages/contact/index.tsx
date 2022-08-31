@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 import InfoLink from 'components/InfoLink'
@@ -6,22 +5,16 @@ import Section from 'components/Section'
 import TextField from 'components/TextField'
 import Button from 'components/Button'
 
-import useSnackbar from 'hooks/useSnackbar'
-import { EMAIL_REGEX } from 'common/constants'
-import { MONTHS } from 'common/months'
+import { EMAIL_REGEX, SNACKBAR_ANIMATION_DURATION } from 'common/constants'
 import GitHubIcon from '../../assets/icons/github-blue.svg'
 import LinkedInIcon from '../../assets/icons/linkedin-blue.svg'
+import { sendToEmail, sendToTele } from 'common/helper'
 import MailIcon from '../../assets/icons/mail-blue.svg'
+import { FormInput } from 'common/types'
 
 import { ContentContainer, StyledText, FormContainer } from '@styles/index'
-import 'antd/dist/antd.css'
-
-interface FormInput {
-  name: string
-  email: string
-  subject: string
-  message: string
-}
+import Snackbar from 'components/Snackbar'
+import { useEffect, useState } from 'react'
 
 const Contact = () => {
   const {
@@ -31,79 +24,39 @@ const Contact = () => {
     formState: { errors, isValid },
   } = useForm<FormInput>({ mode: 'onChange' })
 
-  const sendToEmail = async (data: FormInput) => {
-    axios({
-      method: 'POST',
-      url: process.env.NEXT_PUBLIC_FORM_URL,
-      data: data,
-    }).catch((err) => {
-      console.log('error: ', err)
-    })
-  }
-
-  const getSendTime = () => {
-    const today = new Date()
-    const year = today.getFullYear()
-
-    const month = MONTHS[today.getMonth()]
-    const date = today.getDate()
-    const hour = today.getHours()
-    const minute = `0${today.getMinutes()}`.slice(-2)
-    const time = `${hour % 12 === 0 ? 12 : hour % 12}:${minute} ${
-      hour < 12 ? 'AM' : 'PM'
-    }`
-    return `${date} ${month} ${year} ${time}`
-  }
-
-  const sendToTele = (data: FormInput) => {
-    const TELE_API = `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELE_TOKEN}/sendMessage?chat_id=${process.env.NEXT_PUBLIC_CHAT_ID}`
-    const text = `
-<b>${data.subject}</b>
-
-${data.message}
-
-<i>Submitted by:</i> 
-${data.name}
-${data.email}
-
-${getSendTime()}
-`
-
-    fetch(TELE_API, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'User-Agent':
-          'Telegram Bot SDK - (https://github.com/irazasyed/telegram-bot-sdk)',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        text: text,
-        parse_mode: 'html',
-        disable_web_page_preview: false,
-        disable_notification: false,
-        reply_to_message_id: null,
-        silent: false,
-      }),
-    }).catch((err) => {
-      console.log('error: ', err)
-    })
-  }
-
-  const [success] = useSnackbar('success')
-  const [error] = useSnackbar('error')
+  const [submissionResult, setSubmissionResult] = useState<
+    'success' | 'error' | undefined
+  >()
 
   const onSubmit: SubmitHandler<FormInput> = (data) => {
     Promise.all([sendToEmail(data), sendToTele(data)])
       .then(() => {
-        success('Your message has been sent!')
+        setSubmissionResult('success')
         reset()
       })
-      .catch(() => error('Something went wrong, please try again!'))
+      .catch(() => setSubmissionResult('error'))
   }
+
+  useEffect(() => {
+    if (submissionResult) {
+      setTimeout(() => {
+        setSubmissionResult(undefined)
+      }, SNACKBAR_ANIMATION_DURATION)
+    }
+  })
 
   return (
     <Section title="Contact Me!">
+      <Snackbar
+        isVisible={Boolean(submissionResult)}
+        type={submissionResult}
+        message={
+          submissionResult &&
+          (submissionResult === 'success'
+            ? 'Your message has been sent!'
+            : 'Something went wrong, please try again!')
+        }
+      />
       <ContentContainer>
         <div>
           <StyledText>

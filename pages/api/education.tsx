@@ -1,13 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { EducationType } from 'common/types'
+import { EducationType, FADE_POSITION } from 'common/types'
 
 const EDUCATION: EducationType[] = [
   {
     id: 'education-3',
     school: 'National University of Singapore (NUS)',
     study: 'Computer Engineering',
-    dates: '2019 - Present',
+    dates: {
+      startDate: { year: 2019 },
+      endDate: { year: 2023 },
+    },
     description: {
       title: 'Activities and societies:',
       content: [
@@ -38,13 +41,16 @@ const EDUCATION: EducationType[] = [
         },
       ],
     },
-    hasFade: false,
+    hasFade: FADE_POSITION.TOP,
   },
   {
     id: 'education-2',
     school: "Saint Andrew's Junior College",
     study: 'GCE A Level, Science (Physics, Chemistry, Mathematics, Economics)',
-    dates: '2017 - 2018',
+    dates: {
+      startDate: { year: 2017 },
+      endDate: { year: 2018 },
+    },
     description: {
       title: 'Activities and societies:',
       content: [
@@ -53,13 +59,15 @@ const EDUCATION: EducationType[] = [
         },
       ],
     },
-    hasFade: false,
   },
   {
     id: 'education-1',
     school: "St. Margaret's Secondary School",
     study: 'GCE O Level',
-    dates: '2016 - 2013',
+    dates: {
+      startDate: { year: 2013 },
+      endDate: { year: 2016 },
+    },
     description: {
       title: 'Activities and societies:',
       content: [
@@ -72,8 +80,7 @@ const EDUCATION: EducationType[] = [
         },
       ],
     },
-
-    hasFade: true,
+    hasFade: FADE_POSITION.BOTTOM,
   },
 ]
 

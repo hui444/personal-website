@@ -5,9 +5,11 @@ import { ContentContainer, InfoContainer, VerticalLine } from './styles'
 const InfoSection = ({
   color,
   sectionInfo,
+  showDuration,
 }: {
   color?: 'Blue-Yellow' | 'Yellow-Blue'
   sectionInfo?: InfoSectionProps[]
+  showDuration?: boolean
 }) => (
   <ContentContainer>
     <VerticalLine />
@@ -31,7 +33,8 @@ const InfoSection = ({
                 Object.values(i.info.description).some((d) => d)
             )
           }
-          hasBottomFade={item?.hasFade}
+          hasFade={item?.hasFade}
+          showDuration={showDuration}
         />
       ))}
     </InfoContainer>

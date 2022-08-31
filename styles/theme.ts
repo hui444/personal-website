@@ -22,7 +22,7 @@ const theme: DefaultTheme = {
       success: '#198155',
     },
   },
-  fonts: ['Poppins', 'sans-serif', 'Roboto'],
+  fonts: ['Open Sans', 'sans-serif', 'Roboto'],
   fontSizes: {
     small: '1em',
     medium: '2em',
@@ -31,40 +31,40 @@ const theme: DefaultTheme = {
   borderRadius: '20px',
   typo: {
     h1: css`
-      font-family: Poppins;
+      font-family: Open Sans;
       font-size: 76px;
       font-weight: 300;
       line-height: 114px;
       text-align: left;
     `,
     h2: css`
-      font-family: Poppins;
+      font-family: Open Sans;
       font-size: 20px;
       font-weight: 400;
       line-height: 30px;
       text-align: left;
     `,
     h3: css`
-      font-family: Poppins;
+      font-family: Open Sans;
       font-size: 16px;
       font-weight: 400;
       line-height: 24px;
       text-align: left;
     `,
     body: css`
-      font-family: Poppins;
+      font-family: Open Sans;
       font-size: 16px;
       font-weight: 400;
       line-height: 1.5;
     `,
     'body--bold': css`
-      font-family: Poppins;
+      font-family: Open Sans;
       font-size: 16px;
       font-weight: 600;
       line-height: 1.5;
     `,
     form: css`
-      font-family: Poppins;
+      font-family: Open Sans;
       font-size: 14px;
       font-weight: 400;
       line-height: 1.5;

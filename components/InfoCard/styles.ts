@@ -95,7 +95,7 @@ export const TitleSection = styled.div<{ color: CardColors }>`
     content: '';
     position: absolute;
     top: 28%;
-    left: -${ARROW_SIZE.WIDTH};
+    left: calc(1px - ${ARROW_SIZE.WIDTH});
     height: ${ARROW_SIZE.HEIGHT};
     width: ${ARROW_SIZE.WIDTH};
     background: inherit;

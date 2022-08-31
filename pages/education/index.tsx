@@ -4,6 +4,7 @@ import fetch from 'node-fetch'
 import { EducationType, InfoSectionProps } from 'common/types'
 import InfoSection from 'components/InfoSection'
 import Section from 'components/Section'
+import { SERVER } from 'common/constants'
 
 const Education: NextPage<{ educationInfo: EducationType[] }> = (props) => (
   <Section title="My Education">
@@ -26,7 +27,7 @@ const Education: NextPage<{ educationInfo: EducationType[] }> = (props) => (
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/api/education')
+  const res = await fetch(`${SERVER}/api/education`)
   const educationInfo = await res.json()
   return {
     props: {

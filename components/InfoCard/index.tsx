@@ -16,8 +16,12 @@ import {
 } from './styles'
 import Arrow from '../../assets/arrow/chevron-down.svg'
 import { StyledH3, StyledList, StyledP } from '@styles/index'
-import { InfoCardProps } from 'common/types'
-import { replaceWithLink } from 'common/helper'
+import { FADE_POSITION, InfoCardProps } from 'common/types'
+import {
+  getDuration,
+  getFormattedDatesArray,
+  replaceWithLink,
+} from 'common/helper'
 
 export enum CardColors {
   YELLOW = 'yellow',
@@ -30,14 +34,16 @@ const InfoCard = ({
   isDefaultExpanded,
   info,
   isEnd,
-  hasBottomFade,
+  hasFade,
+  showDuration,
 }: {
   datesColor: CardColors
   infoColor: CardColors
   isDefaultExpanded: boolean
   info: InfoCardProps
   isEnd?: boolean
-  hasBottomFade?: boolean
+  hasFade?: FADE_POSITION
+  showDuration?: boolean
 }) => {
   const disabled =
     !info.description ||
@@ -50,10 +56,10 @@ const InfoCard = ({
       <DatesContainer>
         <DatesBackground
           color={datesColor}
-          hasTopFade={info.dates.toLowerCase().includes('present')}
-          hasBottomFade={hasBottomFade}
+          hasTopFade={hasFade === FADE_POSITION.TOP || info.dates?.isCurrent}
+          hasBottomFade={hasFade === FADE_POSITION.BOTTOM}
         />
-        {info.dates.split(' ').map((s, index) => (
+        {getFormattedDatesArray(info.dates).map((s, index) => (
           <span key={`${info.title}__dates-${index}`}>{s}</span>
         ))}
       </DatesContainer>
@@ -61,32 +67,37 @@ const InfoCard = ({
       <StyledBackground>
         <TitleSection color={infoColor}>
           <Title>{info.title}</Title>
-          <Subtitle>{info.subtitle}</Subtitle>
+          <Subtitle>
+            {info.subtitle}
+            {showDuration && ` | ${getDuration(info.dates)}`}
+          </Subtitle>
         </TitleSection>
         <Body color={infoColor}>
           {info.description &&
             (info.description.formattedText ? (
               <Description visible={isExpanded}>
                 <StyledH3>{info.description.formattedText.title}</StyledH3>
-                {info.description.formattedText.content.map((content) => (
-                  <>
-                    {content.title && <StyledP>{content.title}</StyledP>}
-                    <StyledList>
-                      {content.list.map((item: string) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </StyledList>
-                  </>
-                ))}
+                {info.description.formattedText.content.map(
+                  (content, index) => (
+                    <React.Fragment key={`${content.title}-${index}`}>
+                      {content.title && <StyledP>{content.title}</StyledP>}
+                      <StyledList>
+                        {content.list.map((item: string) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </StyledList>
+                    </React.Fragment>
+                  )
+                )}
               </Description>
             ) : (
               <DescriptionList visible={isExpanded}>
                 {info.description.list?.map((text, index) => {
                   if (typeof text === 'string' || text instanceof String) {
-                    return <li key={index}>{text}</li>
+                    return <li key={`${text}-${index}`}>{text}</li>
                   }
                   return (
-                    <li key={index}>
+                    <li key={`${text.text}-${index}`}>
                       {replaceWithLink(text.text, text.anchor)}
                     </li>
                   )

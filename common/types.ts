@@ -1,10 +1,33 @@
+interface DateType {
+  month?: number
+  year: number
+}
+
+export type Dates = {
+  startDate: DateType
+} & (
+  | {
+      endDate: DateType
+      isCurrent?: false
+    }
+  | {
+      endDate?: undefined
+      isCurrent: true
+    }
+)
+
+export enum FADE_POSITION {
+  TOP = 'top',
+  BOTTOM = 'bottom',
+}
+
 export interface EducationType {
   id: string
   school: string
   study: string
-  dates: string
+  dates: Dates
   description: FormattedText
-  hasFade: boolean
+  hasFade?: FADE_POSITION
 }
 
 export interface FormattedText {
@@ -23,7 +46,7 @@ export interface TextWithLink {
 export interface InfoCardProps {
   title: string
   subtitle: string
-  dates: string
+  dates: Dates
   description?: {
     formattedText?: FormattedText
     list?: string[] | TextWithLink[]
@@ -34,14 +57,14 @@ export interface InfoCardProps {
 export interface InfoSectionProps {
   id: string
   info: InfoCardProps
-  hasFade?: boolean
+  hasFade?: FADE_POSITION
 }
 
 export interface WorkType {
   id: string
   title: string
   company: string
-  dates: string
+  dates: Dates
   description?: {
     text?: string[]
     textWithLink?: TextWithLink[]
@@ -67,4 +90,11 @@ export type SkillType = {
     }
     label: string
   }[]
+}
+
+export interface FormInput {
+  name: string
+  email: string
+  subject: string
+  message: string
 }
