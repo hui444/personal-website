@@ -1,16 +1,18 @@
+import { PAGES } from 'common/constants'
+
 type NavLink = {
-  id: string
+  id: PAGES
   label: string
   path: string
 }
 
 const NAV_LINKS: NavLink[] = [
-  { id: 'nav-1', label: 'About Me', path: '/#about' },
-  { id: 'nav-2', label: 'Education', path: '/education' },
-  // { id: 'nav-3', label: 'Blog', path: '/blog' },
-  { id: 'nav-4', label: 'Work Experience', path: '/work' },
-  { id: 'nav-5', label: 'Skills', path: '/skills' },
-  { id: 'nav-6', label: 'Contact', path: '/contact' },
+  { id: PAGES.ABOUT, label: 'About Me', path: `/#${PAGES.ABOUT}` },
+  { id: PAGES.EDUCATION, label: 'Education', path: `/#${PAGES.EDUCATION}` },
+  // { id: 'nav-3', label: 'Blog', path: '/#blog' },
+  { id: PAGES.SKILLS, label: 'Skills', path: `/#${PAGES.SKILLS}` },
+  { id: PAGES.WORK, label: 'Work Experience', path: `/#${PAGES.WORK}` },
+  { id: PAGES.CONTACT, label: 'Contact', path: `/#${PAGES.CONTACT}` },
 ]
 
 export default NAV_LINKS

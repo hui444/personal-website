@@ -1,9 +1,11 @@
+import React, { useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 import InfoLink from 'components/InfoLink'
 import Section from 'components/Section'
 import TextField from 'components/TextField'
 import Button from 'components/Button'
+import Snackbar from 'components/Snackbar'
 
 import { EMAIL_REGEX, SNACKBAR_ANIMATION_DURATION } from 'common/constants'
 import GitHubIcon from '../../assets/icons/github-blue.svg'
@@ -12,11 +14,9 @@ import { sendToEmail, sendToTele } from 'common/helper'
 import MailIcon from '../../assets/icons/mail-blue.svg'
 import { FormInput } from 'common/types'
 
-import { ContentContainer, StyledText, FormContainer } from '@styles/index'
-import Snackbar from 'components/Snackbar'
-import { useEffect, useState } from 'react'
+import { ContentContainer, StyledText, FormContainer } from './styles'
 
-const Contact = () => {
+const Contact = React.forwardRef<HTMLDivElement>((_, ref) => {
   const {
     register,
     handleSubmit,
@@ -46,7 +46,7 @@ const Contact = () => {
   })
 
   return (
-    <Section title="Contact Me!">
+    <Section ref={ref} title="Contact Me!">
       <Snackbar
         isVisible={Boolean(submissionResult)}
         type={submissionResult}
@@ -139,6 +139,8 @@ const Contact = () => {
       </ContentContainer>
     </Section>
   )
-}
+})
+
+Contact.displayName = 'Contact'
 
 export default Contact

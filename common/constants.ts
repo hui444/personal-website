@@ -2,7 +2,7 @@ export const NAV_HEIGHT = '3rem'
 
 export const BREAKPOINT = 768
 
-export const MAX_CONTENT_WIDTH = '960px'
+export const MAX_CONTENT_WIDTH = '1000px'
 
 export const DATE_WIDTH = '75px'
 
@@ -14,3 +14,11 @@ const dev = process.env.NODE_ENV !== 'production'
 export const SERVER = dev
   ? 'http://localhost:3000'
   : 'https://your_deployment.server.com' // TODO: update prod url
+
+export enum PAGES {
+  ABOUT = 'about',
+  EDUCATION = 'education',
+  SKILLS = 'skills',
+  WORK = 'work',
+  CONTACT = 'contact',
+}

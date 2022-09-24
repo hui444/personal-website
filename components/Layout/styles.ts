@@ -9,7 +9,9 @@ export const MainContainer = styled.div<{ isBreakpoint: boolean }>`
 `
 
 export const StyledMain = styled.main`
-  padding: calc(${NAV_HEIGHT} + 1rem) 2rem 1rem;
   margin-inline: auto;
+  height: 100%;
+  min-height: 100vh;
+  padding: calc(${NAV_HEIGHT} + 1rem) 2rem;
   max-width: ${MAX_CONTENT_WIDTH};
 `
