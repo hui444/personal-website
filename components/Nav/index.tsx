@@ -6,7 +6,15 @@ import NavItem from 'components/NavItem'
 import NAV_LINKS from './index.data'
 import { SECTIONS, SECTION_OFFSET } from 'common/constants'
 
-import { StyledNav, StyledUl } from './styles'
+import {
+  StyledNav,
+  StyledUl,
+  HamburgerButton,
+  BurgerLine1,
+  BurgerLine2,
+  BurgerLine3,
+  Overlay,
+} from './styles'
 
 const Nav = ({
   refs,
@@ -27,7 +35,7 @@ const Nav = ({
       ? SECTIONS.ABOUT
       : (router.asPath.slice(2) as SECTIONS)
   const [activeLink, setActiveLink] = useState<SECTIONS>(defaultActiveLink)
-  console.log(defaultActiveLink, activeLink)
+  const [sidebarIsOpen, setSidebarIsOpen] = useState<boolean>(false)
 
   function handleScroll() {
     const observable = {
@@ -96,23 +104,35 @@ const Nav = ({
   }, [])
 
   return (
-    <StyledNav>
-      <Logo />
-      <StyledUl>
-        {NAV_LINKS.map((navItem) => (
-          <NavItem
-            onClick={() => {
-              setActiveLink(navItem.id)
-              scrollToSection(refs[navItem.id])
-            }}
-            name={navItem.label}
-            to={navItem.path}
-            key={navItem.id}
-            isActive={activeLink === navItem.id}
-          />
-        ))}
-      </StyledUl>
-    </StyledNav>
+    <div>
+      <Overlay
+        isActive={sidebarIsOpen}
+        onClick={() => setSidebarIsOpen(false)}
+      />
+      <StyledNav>
+        <HamburgerButton onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+          <BurgerLine1 isActive={sidebarIsOpen} />
+          <BurgerLine2 isActive={sidebarIsOpen} />
+          <BurgerLine3 isActive={sidebarIsOpen} />
+        </HamburgerButton>
+        <Logo />
+        <StyledUl isActive={sidebarIsOpen}>
+          {NAV_LINKS.map((navItem) => (
+            <NavItem
+              onClick={() => {
+                setSidebarIsOpen(false)
+                setActiveLink(navItem.id)
+                scrollToSection(refs[navItem.id])
+              }}
+              name={navItem.label}
+              to={navItem.path}
+              key={navItem.id}
+              isActive={activeLink === navItem.id}
+            />
+          ))}
+        </StyledUl>
+      </StyledNav>
+    </div>
   )
 }
 
