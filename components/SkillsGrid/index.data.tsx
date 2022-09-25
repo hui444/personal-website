@@ -169,7 +169,7 @@ const SKILLS: SkillType[] = [
   {
     id: 'skill-3',
     title: 'Languages',
-    text: 'English (fluent), Chinese/Mandarin (Fluent)',
+    text: 'English (Fluent), Chinese/Mandarin (Fluent)',
   },
 ]
 

@@ -15,10 +15,12 @@ export const SERVER = dev
   ? 'http://localhost:3000'
   : 'https://your_deployment.server.com' // TODO: update prod url
 
-export enum PAGES {
+export enum SECTIONS {
   ABOUT = 'about',
   EDUCATION = 'education',
   SKILLS = 'skills',
   WORK = 'work',
   CONTACT = 'contact',
 }
+
+export const SECTION_OFFSET = 48

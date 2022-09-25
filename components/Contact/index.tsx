@@ -7,12 +7,16 @@ import TextField from 'components/TextField'
 import Button from 'components/Button'
 import Snackbar from 'components/Snackbar'
 
-import { EMAIL_REGEX, SNACKBAR_ANIMATION_DURATION } from 'common/constants'
+import {
+  EMAIL_REGEX,
+  SECTIONS,
+  SNACKBAR_ANIMATION_DURATION,
+} from 'common/constants'
+import { FormInput } from 'common/types'
 import GitHubIcon from '../../assets/icons/github-blue.svg'
 import LinkedInIcon from '../../assets/icons/linkedin-blue.svg'
 import { sendToEmail, sendToTele } from 'common/helper'
 import MailIcon from '../../assets/icons/mail-blue.svg'
-import { FormInput } from 'common/types'
 
 import { ContentContainer, StyledText, FormContainer } from './styles'
 
@@ -46,7 +50,7 @@ const Contact = React.forwardRef<HTMLDivElement>((_, ref) => {
   })
 
   return (
-    <Section ref={ref} title="Contact Me!">
+    <Section ref={ref} title="Contact Me!" isLast section={SECTIONS.CONTACT}>
       <Snackbar
         isVisible={Boolean(submissionResult)}
         type={submissionResult}

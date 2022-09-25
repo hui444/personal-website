@@ -6,12 +6,12 @@ import portraitSrc from '../assets/images/portrait.jpg'
 import Section from 'components/Section'
 import InfoSection from 'components/InfoSection'
 import { EducationType, InfoSectionProps, WorkType } from 'common/types'
-import { PAGES, SERVER } from 'common/constants'
+import { SECTIONS, SERVER } from 'common/constants'
 import SkillsGrid from 'components/SkillsGrid'
 import Nav from 'components/Nav'
 import Contact from 'components/Contact'
 
-import { FlexBox, MainContainer } from '@styles/index'
+import { FlexBox, IntroContent, MainContainer } from '@styles/index'
 
 const Home: NextPage<{
   workInfo: WorkType[]
@@ -23,20 +23,20 @@ const Home: NextPage<{
   const workSectionRef = useRef(null)
   const contactSectionRef = useRef(null)
 
-  const refs = {
-    [PAGES.ABOUT]: aboutSectionRef,
-    [PAGES.EDUCATION]: educationSectionRef,
-    [PAGES.SKILLS]: skillsSectionRef,
-    [PAGES.WORK]: workSectionRef,
-    [PAGES.CONTACT]: contactSectionRef,
-  }
-
   return (
     <>
-      <Nav refs={refs} />
+      <Nav
+        refs={{
+          [SECTIONS.ABOUT]: aboutSectionRef,
+          [SECTIONS.EDUCATION]: educationSectionRef,
+          [SECTIONS.SKILLS]: skillsSectionRef,
+          [SECTIONS.WORK]: workSectionRef,
+          [SECTIONS.CONTACT]: contactSectionRef,
+        }}
+      />
       <MainContainer>
-        <FlexBox ref={aboutSectionRef}>
-          <div>
+        <FlexBox ref={aboutSectionRef} className={SECTIONS.ABOUT}>
+          <IntroContent>
             <h1>
               Hello,
               <br />I am Hui Hui!
@@ -47,7 +47,7 @@ const Home: NextPage<{
               development and special care on the user experience. Passionate
               for learning new technologies and methodologies.
             </p>
-          </div>
+          </IntroContent>
           <Image
             src={portraitSrc}
             alt="Hui Hui's self portrait"
@@ -57,7 +57,11 @@ const Home: NextPage<{
           />
         </FlexBox>
 
-        <Section ref={educationSectionRef} title="My Education">
+        <Section
+          ref={educationSectionRef}
+          title="My Education"
+          section={SECTIONS.EDUCATION}
+        >
           <InfoSection
             color="Blue-Yellow"
             sectionInfo={props.educationInfo.map(
@@ -75,11 +79,19 @@ const Home: NextPage<{
           />
         </Section>
 
-        <Section ref={skillsSectionRef} title="My Skills">
+        <Section
+          ref={skillsSectionRef}
+          title="My Skills"
+          section={SECTIONS.SKILLS}
+        >
           <SkillsGrid />
         </Section>
 
-        <Section ref={workSectionRef} title="My Work Experience">
+        <Section
+          ref={workSectionRef}
+          title="My Work Experience"
+          section={SECTIONS.WORK}
+        >
           <InfoSection
             color="Yellow-Blue"
             sectionInfo={props.workInfo?.map(
