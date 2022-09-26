@@ -10,11 +10,6 @@ export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
 
 export const SNACKBAR_ANIMATION_DURATION = 1500 // milliseconds
 
-const dev = process.env.NODE_ENV !== 'production'
-export const SERVER = dev
-  ? 'http://localhost:3000'
-  : 'https://your_deployment.server.com' // TODO: update prod url
-
 export enum SECTIONS {
   ABOUT = 'about',
   EDUCATION = 'education',

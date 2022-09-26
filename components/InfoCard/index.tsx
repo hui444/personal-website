@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+
+import { FADE_POSITION, InfoCardProps } from 'common/types'
+import { getDuration, getFormattedDatesArray } from 'common/helper'
+
 import {
   MainContainer,
   DatesContainer,
@@ -15,13 +19,6 @@ import {
   DescriptionList,
 } from './styles'
 import Arrow from '../../assets/arrow/chevron-down.svg'
-import { StyledH3, StyledList, StyledP } from '@styles/index'
-import { FADE_POSITION, InfoCardProps } from 'common/types'
-import {
-  getDuration,
-  getFormattedDatesArray,
-  replaceWithLink,
-} from 'common/helper'
 
 export enum CardColors {
   YELLOW = 'yellow',
@@ -74,6 +71,44 @@ const InfoCard = ({
         </TitleSection>
         <Body color={infoColor}>
           {info.description &&
+            (info.description.element ? (
+              <Description visible={isExpanded}>
+                {info.description.element}
+              </Description>
+            ) : (
+              <DescriptionList visible={isExpanded}>
+                {info.description.text?.map((text, index) => (
+                  <li key={index}>{text}</li>
+                ))}
+                {info.description.skills && (
+                  <li key={`${info.title}__relevant-skills`}>
+                    <BoldText>Relevant skills: </BoldText>
+                    {info.description.skills}
+                  </li>
+                )}
+              </DescriptionList>
+            ))}
+          {/* {info.description && (
+            <Description visible={isExpanded}>
+              {info.description.text?.map((text, index) => (
+                <li key={index}>{text}</li>
+              ))}
+              {info.description.skills && (
+                <li key={`${info.title}__relevant-skills`}>
+                  <BoldText>Relevant skills: </BoldText>
+                  {info.description.skills}
+                </li>
+              )}
+            </Description>
+          )} */}
+          <ArrowContainer
+            disabled={disabled}
+            isExpanded={isExpanded}
+            onClick={() => !disabled && setIsExpanded(!isExpanded)}
+          >
+            <Arrow />
+          </ArrowContainer>
+          {/* {info.description &&
             (info.description.formattedText ? (
               <Description visible={isExpanded}>
                 <StyledH3>{info.description.formattedText.title}</StyledH3>
@@ -116,7 +151,7 @@ const InfoCard = ({
             onClick={() => !disabled && setIsExpanded(!isExpanded)}
           >
             <Arrow />
-          </ArrowContainer>
+          </ArrowContainer> */}
         </Body>
       </StyledBackground>
       {isEnd && <Filler />}

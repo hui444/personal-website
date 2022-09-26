@@ -1,6 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import React from 'react'
 
 import { WorkType } from 'common/types'
+
+import { StyledLink } from './styles'
 
 const WORK_EXPERIENCES: WorkType[] = [
   {
@@ -59,48 +61,36 @@ const WORK_EXPERIENCES: WorkType[] = [
       endDate: { month: 5, year: 2022 },
     },
     description: {
-      textWithLink: [
-        {
-          text: 'Pioneered the development of a Progressive Web Application in the frontend, serving some 400 residents (<a>; <a>)',
-          anchor: [
-            {
-              label: 'RHapp',
-              link: 'http://www.rhapp.lol',
-            },
-            {
-              label: 'GitHub link',
-              link: 'https://github.com/rhdevs/rhapp',
-            },
-          ],
-        },
-        {
-          text: 'Collaborated with backend developers and designers to build the web application',
-        },
-        {
-          text: 'Led a team to create a comprehensive feature to help ease supper collation amongst hall resident (March - July 2021)',
-        },
-        {
-          text: 'Maintained a website to facilitate training of new members (<a>; <a>)',
-          anchor: [
-            {
-              label: 'RHDevs training website',
-              link: 'https://rhdevs-frontend-training-ay-2122.vercel.app/',
-            },
-            {
-              label: 'GitHub link',
-              link: 'https://github.com/rhdevs/rhdevs-frontend-training-AY2122',
-            },
-          ],
-        },
+      text: [
+        <React.Fragment key="work-experience-1__RHApp">
+          Pioneered the development of a Progressive Web Application in the
+          frontend, serving some 400 residents (
+          <StyledLink
+            href="http://www.rhapp.lol"
+            target="_blank"
+            rel="noreferrer"
+          >
+            RHapp
+          </StyledLink>
+          )
+        </React.Fragment>,
+        'Collaborated with backend developers and designers to build the web application',
+        'Led a team to create a comprehensive feature to help ease supper collation amongst hall resident (March - July 2021)',
+        <React.Fragment key="work-experience-1__training-website">
+          Maintained a website to facilitate training of new members (
+          <StyledLink
+            href="https://rhdevs-frontend-training-ay-2122.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            RHDevs training website
+          </StyledLink>
+          )
+        </React.Fragment>,
       ],
       skills: 'TypeScript, React, Redux, CSS (styled-components), Git, Figma',
     },
   },
 ]
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<WorkType[]>
-) {
-  res.status(200).json(WORK_EXPERIENCES)
-}
+export default WORK_EXPERIENCES

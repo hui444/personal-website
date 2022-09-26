@@ -26,7 +26,7 @@ export interface EducationType {
   school: string
   study: string
   dates: Dates
-  description: FormattedText
+  description: React.ReactNode
   hasFade?: FADE_POSITION
 }
 
@@ -48,8 +48,8 @@ export interface InfoCardProps {
   subtitle: string
   dates: Dates
   description?: {
-    formattedText?: FormattedText
-    list?: string[] | TextWithLink[]
+    element?: React.ReactNode
+    text?: React.ReactNode[]
     skills?: string
   }
 }
@@ -66,8 +66,7 @@ export interface WorkType {
   company: string
   dates: Dates
   description?: {
-    text?: string[]
-    textWithLink?: TextWithLink[]
+    text: React.ReactNode[]
     skills: string
   }
 }

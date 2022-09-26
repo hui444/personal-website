@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 import InfoLink from 'components/InfoLink'
-import Section from 'components/Section'
+import Section from 'components/Sections/Section'
 import TextField from 'components/TextField'
 import Button from 'components/Button'
 import Snackbar from 'components/Snackbar'
@@ -13,10 +13,10 @@ import {
   SNACKBAR_ANIMATION_DURATION,
 } from 'common/constants'
 import { FormInput } from 'common/types'
-import GitHubIcon from '../../assets/icons/github-blue.svg'
-import LinkedInIcon from '../../assets/icons/linkedin-blue.svg'
+import GitHubIcon from '../../../assets/icons/github-blue.svg'
+import LinkedInIcon from '../../../assets/icons/linkedin-blue.svg'
 import { sendToEmail, sendToTele } from 'common/helper'
-import MailIcon from '../../assets/icons/mail-blue.svg'
+import MailIcon from '../../../assets/icons/mail-blue.svg'
 
 import { ContentContainer, StyledText, FormContainer } from './styles'
 

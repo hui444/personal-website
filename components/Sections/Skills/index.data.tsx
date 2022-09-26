@@ -1,32 +1,32 @@
 import Image from 'next/image'
 
 // programming languages
-import CSS3 from '../../assets/icons/css3.svg'
-import HTML5 from '../../assets/icons/html5.svg'
+import CSS3 from '../../../assets/icons/css3.svg'
+import HTML5 from '../../../assets/icons/html5.svg'
 
-import Java from '../../assets/icons/java.svg'
-import JavaAnimated from '../../assets/icons/animated/java.gif'
+import Java from '../../../assets/icons/java.svg'
+import JavaAnimated from '../../../assets/icons/animated/java.gif'
 
-import JavaScript from '../../assets/icons/javascript.svg'
-import JavaScriptAnimated from '../../assets/icons/animated/javascript.gif'
+import JavaScript from '../../../assets/icons/javascript.svg'
+import JavaScriptAnimated from '../../../assets/icons/animated/javascript.gif'
 
-import TypeScript from '../../assets/icons/typescript.svg'
+import TypeScript from '../../../assets/icons/typescript.svg'
 
-import Python from '../../assets/icons/python.svg'
-import PythonAnimated from '../../assets/icons/animated/python.gif'
+import Python from '../../../assets/icons/python.svg'
+import PythonAnimated from '../../../assets/icons/animated/python.gif'
 
-import C from '../../assets/icons/c.svg'
-import CSharp from '../../assets/icons/c-sharp.svg'
-import CPP from '../../assets/icons/c++.svg'
-import Swift from '../../assets/icons/swift.svg'
+import C from '../../../assets/icons/c.svg'
+import CSharp from '../../../assets/icons/c-sharp.svg'
+import CPP from '../../../assets/icons/c++.svg'
+import Swift from '../../../assets/icons/swift.svg'
 
 // tools
-import React from '../../assets/icons/react.svg'
-import Redux from '../../assets/icons/redux.svg'
-import NodeJS from '../../assets/icons/nodejs.svg'
-import PostgreSQL from '../../assets/icons/postgresql.svg'
-import ASPNET from '../../assets/icons/net-framework.svg'
-import SASS from '../../assets/icons/sass.svg'
+import React from '../../../assets/icons/react.svg'
+import Redux from '../../../assets/icons/redux.svg'
+import NodeJS from '../../../assets/icons/nodejs.svg'
+import PostgreSQL from '../../../assets/icons/postgresql.svg'
+import ASPNET from '../../../assets/icons/net-framework.svg'
+import SASS from '../../../assets/icons/sass.svg'
 
 import { SkillType, ANIMATION } from 'common/types'
 
