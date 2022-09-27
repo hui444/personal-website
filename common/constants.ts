@@ -1,6 +1,6 @@
 export const NAV_HEIGHT = '3rem'
 
-export const BREAKPOINT = 768
+export const BREAKPOINT = '768px'
 
 export const MAX_CONTENT_WIDTH = '1000px'
 

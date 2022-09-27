@@ -14,7 +14,7 @@ export const StyledNav = styled.nav`
   top: 0;
   z-index: 300;
 
-  @media screen and (max-width: ${BREAKPOINT}px) {
+  @media screen and (max-width: ${BREAKPOINT}) {
     flex-direction: column;
     padding: 10px 50px;
     height: auto;
@@ -30,7 +30,7 @@ export const StyledUl = styled.ul<{ isActive?: boolean }>`
   margin: 0;
   padding: 0;
 
-  @media screen and (max-width: ${BREAKPOINT}px) {
+  @media screen and (max-width: ${BREAKPOINT}) {
     flex-direction: column;
     overflow: hidden;
     max-height: 0;
@@ -60,9 +60,9 @@ export const Overlay = styled.div<{ isActive?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 299;
-  width: 100vw;
-  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
 
   ${(props) =>
@@ -85,7 +85,7 @@ export const HamburgerButton = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  @media screen and (min-width: ${BREAKPOINT}px) {
+  @media screen and (min-width: ${BREAKPOINT}) {
     display: none;
   }
 `

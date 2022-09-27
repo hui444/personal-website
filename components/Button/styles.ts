@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { BREAKPOINT } from 'common/constants'
+
 export const StyledButton = styled.button<{ isDisabled?: boolean }>`
   height: 36px;
   width: 100%;
@@ -9,5 +11,9 @@ export const StyledButton = styled.button<{ isDisabled?: boolean }>`
   border-radius: 8px;
   text-transform: capitalize;
   color: ${(props) => props.theme.colors.neutral[100]};
-  ${(props) => props.theme.typo.form};
+  ${(props) => props.theme.typo.default.form};
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    ${(props) => props.theme.typo.mobile.form};
+  }
 `

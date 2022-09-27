@@ -15,7 +15,7 @@ const NAV_LINKS: NavLink[] = [
   },
   // { id: 'nav-3', label: 'Blog', path: '/#blog' },
   { id: SECTIONS.SKILLS, label: 'Skills', path: `/#${SECTIONS.SKILLS}` },
-  { id: SECTIONS.WORK, label: 'Work Experience', path: `/#${SECTIONS.WORK}` },
+  { id: SECTIONS.WORK, label: 'Work Experiences', path: `/#${SECTIONS.WORK}` },
   { id: SECTIONS.CONTACT, label: 'Contact', path: `/#${SECTIONS.CONTACT}` },
 ]
 

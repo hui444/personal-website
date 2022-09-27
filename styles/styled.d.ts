@@ -1,6 +1,15 @@
 import 'styled-components'
 
 type hexCode = `#${string}`
+
+interface FontTypes {
+  h1: FlattenSimpleInterpolation
+  h2: FlattenSimpleInterpolation
+  h3: FlattenSimpleInterpolation
+  body: FlattenSimpleInterpolation
+  'body--bold': FlattenSimpleInterpolation
+  form: FlattenSimpleInterpolation
+}
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
@@ -32,12 +41,8 @@ declare module 'styled-components' {
     }
     borderRadius: string
     typo: {
-      h1: FlattenSimpleInterpolation
-      h2: FlattenSimpleInterpolation
-      h3: FlattenSimpleInterpolation
-      body: FlattenSimpleInterpolation
-      'body--bold': FlattenSimpleInterpolation
-      form: FlattenSimpleInterpolation
+      default: FontTypes
+      mobile: FontTypes
     }
   }
 }

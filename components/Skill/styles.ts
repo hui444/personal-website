@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components'
 
 import { ANIMATION } from 'common/types'
+import { BREAKPOINT } from 'common/constants'
 
 export const MainContainer = styled.div`
   display: flex;
@@ -15,6 +16,7 @@ export const MainContainer = styled.div`
 
   label {
     margin-top: 5px;
+    white-space: nowrap;
   }
 
   > .animated {
@@ -27,6 +29,14 @@ export const MainContainer = styled.div`
     }
     > .animated {
       display: block;
+    }
+  }
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    flex-direction: row;
+
+    i {
+      transform: scale(0.7);
     }
   }
 `

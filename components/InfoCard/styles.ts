@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
-import { DATE_WIDTH } from 'common/constants'
+
+import { BREAKPOINT, DATE_WIDTH } from 'common/constants'
 import { CardColors } from '.'
 
 const ARROW_SIZE = {
@@ -15,7 +16,11 @@ export const MainContainer = styled.div`
     'dates .'
     'dates content'
     'filler content';
-  gap: 0 28px;
+  column-gap: 0 28px;
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    display: block;
+  }
 `
 
 export const DatesBackground = styled.div<{
@@ -72,13 +77,21 @@ export const DatesContainer = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.colors.pageBackground};
   padding: 50px 20px;
-  ${(props) => props.theme.typo.body};
+  ${(props) => props.theme.typo.default.body};
   height: fit-content;
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    display: none;
+    ${(props) => props.theme.typo.mobile.body};
+  }
 `
 
 export const StyledBackground = styled.div`
   grid-area: content;
-  padding-left: ${ARROW_SIZE.WIDTH};
+
+  @media screen and (min-width: ${BREAKPOINT}) {
+    padding-left: ${ARROW_SIZE.WIDTH};
+  }
 `
 
 export const TitleSection = styled.div<{ color: CardColors }>`
@@ -91,28 +104,45 @@ export const TitleSection = styled.div<{ color: CardColors }>`
   border-radius: ${(props) =>
     `${props.theme.borderRadius} ${props.theme.borderRadius} 0 0`};
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 28%;
-    left: calc(1px - ${ARROW_SIZE.WIDTH});
-    height: ${ARROW_SIZE.HEIGHT};
-    width: ${ARROW_SIZE.WIDTH};
-    background: inherit;
-    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  @media screen and (min--width: ${BREAKPOINT}) {
+    ${(props) => props.theme.typo.mobile.body};
+    &::before {
+      content: '';
+      position: absolute;
+      top: 28%;
+      left: calc(1px - ${ARROW_SIZE.WIDTH});
+      height: ${ARROW_SIZE.HEIGHT};
+      width: ${ARROW_SIZE.WIDTH};
+      background: inherit;
+      clip-path: polygon(100% 0, 100% 100%, 0 50%);
+    }
   }
 `
 
 export const Title = styled.h2`
   margin: 0;
-  ${(props) => props.theme.typo.h2}
+  ${(props) => props.theme.typo.default.h2}
   color: ${(props) => props.theme.colors.neutral[600]};
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    ${(props) => props.theme.typo.mobile.h2}
+  }
 `
 
 export const Subtitle = styled.h3`
   margin: 0;
-  ${(props) => props.theme.typo.h3};
+  ${(props) => props.theme.typo.default.h3};
   color: ${(props) => props.theme.colors.neutral[300]};
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    ${(props) => props.theme.typo.mobile.h3};
+  }
+`
+
+export const DatesSubtitle = styled(Subtitle)`
+  @media screen and (min-width: ${BREAKPOINT}) {
+    display: none;
+  }
 `
 
 export const Body = styled.div<{ color: CardColors }>`
@@ -153,9 +183,13 @@ const description = css<{ visible: boolean }>`
 
   overflow: hidden;
   margin: ${(props) => (props.visible ? '0 0 8px 0' : 0)};
-  ${(props) => props.theme.typo.body};
+  ${(props) => props.theme.typo.default.body};
   color: ${(props) => props.theme.colors.neutral[600]};
   align-self: start;
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    ${(props) => props.theme.typo.mobile.body};
+  }
 `
 
 export const Description = styled.div<{ visible: boolean }>`
@@ -168,8 +202,12 @@ export const DescriptionList = styled.ul<{ visible: boolean }>`
 `
 
 export const BoldText = styled.label`
-  ${(props) => props.theme.typo['body--bold']};
+  ${(props) => props.theme.typo.default['body--bold']};
   color: ${(props) => props.theme.colors.neutral[600]};
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    ${(props) => props.theme.typo.mobile['body--bold']};
+  }
 `
 
 export const Filler = styled.div`

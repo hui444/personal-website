@@ -1,14 +1,20 @@
 import styled from 'styled-components'
 
+import { BREAKPOINT } from 'common/constants'
+
 export const FormInputContainer = styled.div`
   position: relative;
   margin-block: 15px 5px;
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    margin-block: 5px 2px;
+  }
 `
 
 export const FormInput = styled.input<{
   error?: boolean
 }>`
-  ${(props) => props.theme.typo.form};
+  ${(props) => props.theme.typo.default.form};
   display: block;
   width: 100%;
   height: 40px;
@@ -29,8 +35,8 @@ export const FormInput = styled.input<{
 
   &:focus + label,
   &:not(:placeholder-shown) + label {
-    font-size: 11px;
-    top: -8px;
+    font-size: 12px;
+    top: -9px;
     color: ${(props) =>
       props.error ? props.theme.colors.state.error : '#999'};
     border-radius: 50px;
@@ -45,6 +51,10 @@ export const FormInput = styled.input<{
 
   &:focus + label > em {
     color: ${(props) => props.theme.colors.state.error};
+  }
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    ${(props) => props.theme.typo.mobile.form};
   }
 `
 
@@ -64,11 +74,15 @@ export const FormLabel = styled.label<{ error?: boolean }>`
   z-index: 2;
   top: 10px;
   left: 10px;
-  ${(props) => props.theme.typo.form};
+  ${(props) => props.theme.typo.default.form};
   background: ${(props) => props.theme.colors.pageBackground};
   padding: 0 10px;
   color: ${(props) => (props.error ? props.theme.colors.state.error : '#999')};
   transition: all 0.3s ease;
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    ${(props) => props.theme.typo.mobile.form};
+  }
 `
 
 export const RedAsterisk = styled.em`

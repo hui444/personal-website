@@ -1,3 +1,4 @@
+import { BREAKPOINT } from 'common/constants'
 import { createGlobalStyle } from 'styled-components'
 import theme from './theme'
 
@@ -25,18 +26,38 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    ${theme.typo.h1};
+    ${theme.typo.default.h1};
     margin-block: 0;
+    
+    @media screen and (max-width: ${BREAKPOINT}) {
+      ${theme.typo.mobile.h1};
+    }
   }
   
   h2 {
-    ${theme.typo.h2};
+    ${theme.typo.default.h2};
     margin-block: 0;
+    
+    @media screen and (max-width: ${BREAKPOINT}) {
+      ${theme.typo.mobile.h2};
+    }
   }
   
   h3 {
-    ${theme.typo.h3};
+    ${theme.typo.default.h3};
     margin-block: 0;
+    
+    @media screen and (max-width: ${BREAKPOINT}) {
+      ${theme.typo.mobile.h3}; 
+    }
   }
-
+  
+  p {
+    ${theme.typo.default.body};
+    margin-block: 0;
+    
+    @media screen and (max-width: ${BREAKPOINT}) {
+      ${theme.typo.mobile.body}; 
+    }
+  }
 `

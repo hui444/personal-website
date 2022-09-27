@@ -6,7 +6,7 @@ import Section from '../Section'
 import WORK_EXPERIENCES from './index.data'
 
 const Work = forwardRef<HTMLDivElement>((_, ref) => (
-  <Section ref={ref} title="My Work Experience" section={SECTIONS.WORK}>
+  <Section ref={ref} title="My Work Experiences" section={SECTIONS.WORK}>
     <InfoSection
       color="Yellow-Blue"
       sectionInfo={WORK_EXPERIENCES.map(

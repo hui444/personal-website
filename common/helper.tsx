@@ -30,23 +30,27 @@ export const replaceWithLink = (
   return text
 }
 
-export const getFormattedDatesArray = (dates: Dates): string[] => {
-  const startDate = dates.startDate
-  const datesArr = startDate.month ? [MONTHS[startDate.month - 1]] : []
-  datesArr.push(String(startDate.year))
-  datesArr.push('-')
+export const stringifyDate = (date: Dates): string => {
+  const startDate = date.startDate
+  let dateString = ''
 
-  if (dates.endDate) {
-    const endDate = dates.endDate
-    if (endDate.month) {
-      datesArr.push(MONTHS[endDate.month - 1])
-    }
-    datesArr.push(String(endDate.year))
-  } else {
-    datesArr.push('Present')
+  if (startDate.month) {
+    dateString += `${MONTHS[startDate.month - 1]} `
   }
 
-  return datesArr
+  dateString += `${startDate.year} - `
+
+  if (date.endDate) {
+    const endDate = date.endDate
+    if (endDate.month) {
+      dateString += `${MONTHS[endDate.month - 1]} `
+    }
+    dateString += endDate.year
+  } else {
+    dateString += 'Present'
+  }
+
+  return dateString
 }
 
 export const getDuration = (dates: Dates): string => {

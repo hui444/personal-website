@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
-import { MAX_CONTENT_WIDTH } from 'common/constants'
+
+import { BREAKPOINT, MAX_CONTENT_WIDTH } from 'common/constants'
 
 export const MainContainer = styled.div<{ isLast?: boolean }>`
   display: flex;
@@ -14,6 +15,15 @@ export const MainContainer = styled.div<{ isLast?: boolean }>`
 
   h1 + div {
     margin-top: 50px;
+  }
+
+  @media screen and (max-width: ${BREAKPOINT}) {
+    padding-top: 0;
+    padding-bottom: 2rem;
+
+    h1 + div {
+      margin-top: 20px;
+    }
   }
 `
 

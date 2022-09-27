@@ -7,7 +7,7 @@ export const StyledLogo = styled.div`
   white-space: nowrap;
   color: ${(props) => props.theme.colors.neutral[100]};
 
-  @media screen and (max-width: ${BREAKPOINT}px) {
+  @media screen and (max-width: ${BREAKPOINT}) {
     margin-right: 0;
   }
 `

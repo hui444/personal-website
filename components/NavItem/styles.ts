@@ -15,7 +15,7 @@ export const StyledA = styled.a<{ isActive?: boolean }>`
     color: ${(props) => props.theme.colors.neutral[100]};
   }
 
-  @media screen and (max-width: ${BREAKPOINT}px) {
+  @media screen and (max-width: ${BREAKPOINT}) {
     color: ${(props) => props.theme.colors.blue[400]};
   }
 `

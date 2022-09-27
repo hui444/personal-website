@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { BREAKPOINT, NAV_HEIGHT } from 'common/constants'
+import { NAV_HEIGHT } from 'common/constants'
 
-export const MainContainer = styled.div<{ isBreakpoint: boolean }>`
-  width: ${(props) => (props.isBreakpoint ? `${BREAKPOINT}px` : '100vw')};
+export const MainContainer = styled.div`
+  width: 100vw;
   height: 100%;
   min-height: 100vh;
   position: relative;

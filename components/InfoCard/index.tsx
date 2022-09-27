@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { FADE_POSITION, InfoCardProps } from 'common/types'
-import { getDuration, getFormattedDatesArray } from 'common/helper'
+import { getDuration, stringifyDate } from 'common/helper'
 
 import {
   MainContainer,
@@ -11,6 +11,7 @@ import {
   Body,
   Title,
   Subtitle,
+  DatesSubtitle,
   Description,
   BoldText,
   ArrowContainer,
@@ -48,6 +49,8 @@ const InfoCard = ({
   const [isExpanded, setIsExpanded] = useState<boolean>(
     isDefaultExpanded ?? false
   )
+
+  const dateText = stringifyDate(info.dates)
   return (
     <MainContainer>
       <DatesContainer>
@@ -56,7 +59,7 @@ const InfoCard = ({
           hasTopFade={hasFade === FADE_POSITION.TOP || info.dates?.isCurrent}
           hasBottomFade={hasFade === FADE_POSITION.BOTTOM}
         />
-        {getFormattedDatesArray(info.dates).map((s, index) => (
+        {dateText.split(' ').map((s, index) => (
           <span key={`${info.title}__dates-${index}`}>{s}</span>
         ))}
       </DatesContainer>
@@ -68,6 +71,7 @@ const InfoCard = ({
             {info.subtitle}
             {showDuration && ` | ${getDuration(info.dates)}`}
           </Subtitle>
+          <DatesSubtitle>{dateText}</DatesSubtitle>
         </TitleSection>
         <Body color={infoColor}>
           {info.description &&
