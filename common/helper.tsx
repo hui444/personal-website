@@ -3,7 +3,7 @@ import axios from 'axios'
 import { MONTHS } from './months'
 import { Dates, FormInput } from './types'
 
-import { StyledLink } from '@styles/index'
+import { StyledLink } from 'styles'
 
 export const replaceWithLink = (
   text: string,
