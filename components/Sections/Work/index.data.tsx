@@ -7,7 +7,7 @@ import { StyledLink } from './styles'
 const WORK_EXPERIENCES: WorkType[] = [
   {
     id: 'work-4',
-    title: 'Software Development Intern, Map Creator (Front-End)',
+    title: 'Software Development Intern, Map Creator',
     company: 'Motional Singapore Pte. Ltd.',
     dates: {
       startDate: {
@@ -15,6 +15,14 @@ const WORK_EXPERIENCES: WorkType[] = [
         year: 2022,
       },
       isCurrent: true,
+    },
+    description: {
+      text: [
+        'Develop and implement software features that enhance user experience, ensuring optimal functionality and debugging where necessary',
+        'Leverage React Leaflet and RxJS to construct interactive map objects and validations in the web application, streamlining map annotation processes for greater efficiency',
+      ],
+      skills:
+        'TypeScript, React, Redux, RxJS, ReactLeaflet, CSS, Git, Figma, C#, MVC',
     },
   },
   {
@@ -45,9 +53,8 @@ const WORK_EXPERIENCES: WorkType[] = [
     },
     description: {
       text: [
-        'Redesign web pages and assessed UIUX designs for technical feasibility',
-        'Implemented website from concept to deployment',
-        'Did error-checking and accuracy checks to make sure software projects were correct, resolving any errors or other problem that were found',
+        'Successfully executed website development, bringing concepts to full deployment with precision and efficiency',
+        'Conducted thorough error-checking and accuracy assessments, promptly resolving any issues to ensure seamless website performance',
       ],
       skills: 'HTML, CSS, ASP.NET (C#), Figma, TFVC',
     },
@@ -63,8 +70,8 @@ const WORK_EXPERIENCES: WorkType[] = [
     description: {
       text: [
         <React.Fragment key="work-experience-1__RHApp">
-          Pioneered the development of a Progressive Web Application in the
-          frontend, serving some 400 residents (
+          Innovatively led the creation of a Progressive Web Application,
+          improving the digital experience for 400 residents (
           <StyledLink
             href="http://www.rhapp.lol"
             target="_blank"
@@ -77,7 +84,8 @@ const WORK_EXPERIENCES: WorkType[] = [
         'Collaborated with backend developers and designers to build the web application',
         'Led a team to create a comprehensive feature to help ease supper collation amongst hall resident (March - July 2021)',
         <React.Fragment key="work-experience-1__training-website">
-          Maintained a website to facilitate training of new members (
+          Skillfully managed a website to effectively train and onboard new team
+          members (
           <StyledLink
             href="https://rhdevs-frontend-training-ay-2122.vercel.app/"
             target="_blank"
