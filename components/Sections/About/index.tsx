@@ -13,10 +13,10 @@ const About = forwardRef<HTMLDivElement>((_, ref) => (
       <br />I am Hui&nbsp;Hui!
     </Greeting>
     <Description>
-      Final year Computer Engineering undergraduate at the National University
-      of Singapore, with a strong background in web development and special care
-      on the user experience. Passionate for learning new technologies and
-      methodologies.
+      Final year undergraduate with strong background in frontend web
+      development, with special care on the user experience. Possessing a strong
+      passion for staying ahead of the curve through continuous learning of new
+      technologies and methodologies.
     </Description>
     <ImageContainer>
       <Image
