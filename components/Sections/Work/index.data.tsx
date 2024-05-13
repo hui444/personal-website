@@ -6,15 +6,32 @@ import { StyledLink } from './styles'
 
 const WORK_EXPERIENCES: WorkType[] = [
   {
+    id: 'work-5',
+    title: 'Software Developer, Map Creator',
+    company: 'Motional Singapore Pte. Ltd.',
+    dates: {
+      startDate: { month: 7, year: 2023 },
+      isCurrent: true,
+    },
+    description: {
+      text: [
+        'Effectively resolved technical issues and improved user experience through systematic bug fixes and enhancements',
+        'Demonstrated strong software development skills by implementing new features to expand functionality and optimize processes',
+        'Ensured project success by providing comprehensive documentation for developers and users, facilitating seamless integration and understanding',
+        "Contributed to team's technical advancement by laying groundwork for future features and actively participating in discussions and presentations",
+      ],
+      skills:
+        'TypeScript, React, Redux, RxJS, ReactLeaflet, CSS, Git, Figma, Jest',
+    },
+  },
+  {
     id: 'work-4',
     title: 'Software Development Intern, Map Creator',
     company: 'Motional Singapore Pte. Ltd.',
     dates: {
-      startDate: {
-        month: 8,
-        year: 2022,
-      },
-      isCurrent: true,
+      startDate: { month: 8, year: 2022 },
+      endDate: { month: 4, year: 2023 },
+      isCurrent: false,
     },
     description: {
       text: [
@@ -85,13 +102,13 @@ const WORK_EXPERIENCES: WorkType[] = [
         'Led a team to create a comprehensive feature to help ease supper collation amongst hall resident (March - July 2021)',
         <React.Fragment key="work-experience-1__training-website">
           Skillfully managed a website to effectively train and onboard new team
-          members (
+          members on React and Redux (
           <StyledLink
-            href="https://rhdevs-frontend-training-ay-2122.vercel.app/"
+            href="https://github.com/rhdevs/rhdevs-frontend-training-AY2122"
             target="_blank"
             rel="noreferrer"
           >
-            RHDevs training website
+            RHDevs training website repository
           </StyledLink>
           )
         </React.Fragment>,

@@ -5,7 +5,7 @@ export const EDUCATION: EducationType[] = [
   {
     id: 'education-3',
     school: 'National University of Singapore (NUS)',
-    study: 'Computer Engineering',
+    study: 'Bachelors in Computer Engineering (Second Upper)',
     dates: {
       startDate: { year: 2019 },
       endDate: { year: 2023 },
@@ -34,7 +34,6 @@ export const EDUCATION: EducationType[] = [
         </StyledList>
       </>
     ),
-    hasFade: FADE_POSITION.TOP,
   },
   {
     id: 'education-2',

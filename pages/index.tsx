@@ -38,20 +38,20 @@ const Home: NextPage = () => {
         <Nav
           refs={{
             [SECTIONS.ABOUT]: aboutSectionRef,
-            [SECTIONS.EDUCATION]: educationSectionRef,
-            [SECTIONS.SKILLS]: skillsSectionRef,
             [SECTIONS.WORK]: workSectionRef,
+            [SECTIONS.SKILLS]: skillsSectionRef,
+            [SECTIONS.EDUCATION]: educationSectionRef,
             [SECTIONS.CONTACT]: contactSectionRef,
           }}
         />
         <MainContainer>
           <About ref={aboutSectionRef} />
 
-          <Education ref={educationSectionRef} />
+          <Work ref={workSectionRef} />
 
           <Skills ref={skillsSectionRef} />
 
-          <Work ref={workSectionRef} />
+          <Education ref={educationSectionRef} />
 
           <Contact ref={contactSectionRef} />
         </MainContainer>

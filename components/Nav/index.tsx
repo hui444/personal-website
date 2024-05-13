@@ -73,20 +73,20 @@ const Nav = ({
     ) {
       setActiveLink(SECTIONS.ABOUT)
     } else if (
-      pos[SECTIONS.EDUCATION].top < window.innerHeight &&
-      pos[SECTIONS.EDUCATION].bottom >= offset
+      pos[SECTIONS.WORK].top < window.innerHeight &&
+      pos[SECTIONS.WORK].bottom >= offset
     ) {
-      setActiveLink(SECTIONS.EDUCATION)
+      setActiveLink(SECTIONS.WORK)
     } else if (
       pos[SECTIONS.SKILLS].top < window.innerHeight &&
       pos[SECTIONS.SKILLS].bottom >= offset
     ) {
       setActiveLink(SECTIONS.SKILLS)
     } else if (
-      pos[SECTIONS.WORK].top < window.innerHeight &&
-      pos[SECTIONS.WORK].bottom >= offset
+      pos[SECTIONS.EDUCATION].top < window.innerHeight &&
+      pos[SECTIONS.EDUCATION].bottom >= offset
     ) {
-      setActiveLink(SECTIONS.WORK)
+      setActiveLink(SECTIONS.EDUCATION)
     } else if (
       pos[SECTIONS.CONTACT].top < window.innerHeight &&
       pos[SECTIONS.CONTACT].bottom >= offset

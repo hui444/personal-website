@@ -13,10 +13,13 @@ const About = forwardRef<HTMLDivElement>((_, ref) => (
       <br />I am Hui&nbsp;Hui!
     </Greeting>
     <Description>
-      Final year undergraduate with strong background in frontend web
-      development, with special care on the user experience. Possessing a strong
-      passion for staying ahead of the curve through continuous learning of new
-      technologies and methodologies.
+      Experienced software developer specializing in frontend web development
+      and dedicated to optimizing user experience. With a solid foundation built
+      through internship experiences and a year of full-time employment, I excel
+      in crafting intuitive interfaces and leveraging established technologies
+      to deliver exceptional results. Committed to continuous growth, I eagerly
+      pursue new skills and methodologies to stay ahead in this dynamic
+      industry.
     </Description>
     <ImageContainer>
       <Image
