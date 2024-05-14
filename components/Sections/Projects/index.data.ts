@@ -2,9 +2,16 @@ import { ProjectType } from 'common/types'
 import HikingHelperPrototype from 'components/FigmaPrototypes/HikingHelperPrototype'
 import RunTogetherPrototype from 'components/FigmaPrototypes/RunTogetherPrototype'
 import CapstoneProjectShowcase from 'components/ProjectShowcase/CapstoneProjectShowcase'
+import CaptVReProjectShowcase from 'components/ProjectShowcase/CaptVReProjectShowcase'
 import NUSPlannerProjectShowcase from 'components/ProjectShowcase/NUSPlannerProjectShowcase'
 
 export const PROJECTS: ProjectType[] = [
+  {
+    title: 'CAPTVRE VR Photography Project',
+    description:
+      'A Virtual Reality photography based project, created using Unity, geared towards delivering a true-to-life photography experience for beginners to learn how to use a camera and for professionals to hone their craft in a VR environment.',
+    component: CaptVReProjectShowcase,
+  },
   {
     title: 'Laser Tag Capstone Project',
     description:
