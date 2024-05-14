@@ -1,21 +1,15 @@
-import { BREAKPOINT } from 'common/constants'
 import styled from 'styled-components'
 
 export const StyledA = styled.a<{ isActive?: boolean }>`
-  color: ${(props) =>
-    props.isActive
-      ? props.theme.colors.neutral[100]
-      : props.theme.colors.blue[400]};
+  color: ${(props) => props.theme.colors.neutral[100]};
+  font-weight: ${(props) => (props.isActive ? 600 : 'normal')};
+
   text-transform: capitalize;
   white-space: nowrap;
   transition: color 250ms ease;
 
   :hover,
   :active {
-    color: ${(props) => props.theme.colors.neutral[100]};
-  }
-
-  @media screen and (max-width: ${BREAKPOINT}) {
-    color: ${(props) => props.theme.colors.blue[400]};
+    font-weight: 600;
   }
 `
