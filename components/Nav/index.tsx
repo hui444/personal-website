@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
-import { RefObject, useEffect, useState } from 'react'
+import { RefObject, useEffect, useState, useCallback } from 'react'
 
 import Logo from 'components/Logo'
 import NavItem from 'components/NavItem'
-import NAV_LINKS from './index.data'
+import { NAV_LINKS, ORDERED_SECTIONS } from './index.data'
 import { SECTIONS, SECTION_OFFSET } from 'common/constants'
 
 import {
@@ -15,6 +15,13 @@ import {
   BurgerLine3,
   Overlay,
 } from './styles'
+
+const DEFAULT_BOUNDING_CLIENT_RECT: Pick<DOMRect, 'top' | 'bottom'> = {
+  top: 0,
+  bottom: 0,
+}
+
+const OFFSET = SECTION_OFFSET + 5
 
 const Nav = ({
   refs,
@@ -37,63 +44,18 @@ const Nav = ({
   const [activeLink, setActiveLink] = useState<SECTIONS>(defaultActiveLink)
   const [sidebarIsOpen, setSidebarIsOpen] = useState<boolean>(false)
 
-  function handleScroll() {
-    const observable = {
-      [SECTIONS.ABOUT]: document.querySelector(`.${SECTIONS.ABOUT}`),
-      [SECTIONS.EDUCATION]: document.querySelector(`.${SECTIONS.EDUCATION}`),
-      [SECTIONS.SKILLS]: document.querySelector(`.${SECTIONS.SKILLS}`),
-      [SECTIONS.WORK]: document.querySelector(`.${SECTIONS.WORK}`),
-      [SECTIONS.CONTACT]: document.querySelector(`.${SECTIONS.CONTACT}`),
-    }
+  const handleScroll = useCallback(() => {
+    for (const section of ORDERED_SECTIONS) {
+      const { top, bottom } =
+        document.querySelector(`.${section}`)?.getBoundingClientRect() ??
+        DEFAULT_BOUNDING_CLIENT_RECT
 
-    const defaultValues = {
-      top: 0,
-      bottom: 0,
+      if (top < window.innerHeight && bottom >= OFFSET) {
+        setActiveLink(section)
+        return
+      }
     }
-
-    const pos = {
-      [SECTIONS.ABOUT]:
-        observable[SECTIONS.ABOUT]?.getBoundingClientRect() ?? defaultValues,
-      [SECTIONS.EDUCATION]:
-        observable[SECTIONS.EDUCATION]?.getBoundingClientRect() ??
-        defaultValues,
-      [SECTIONS.SKILLS]:
-        observable[SECTIONS.SKILLS]?.getBoundingClientRect() ?? defaultValues,
-      [SECTIONS.WORK]:
-        observable[SECTIONS.WORK]?.getBoundingClientRect() ?? defaultValues,
-      [SECTIONS.CONTACT]:
-        observable[SECTIONS.CONTACT]?.getBoundingClientRect() ?? defaultValues,
-    }
-
-    const offset = SECTION_OFFSET + 5
-
-    if (
-      pos[SECTIONS.ABOUT].top < window.innerHeight &&
-      pos[SECTIONS.ABOUT].bottom >= offset
-    ) {
-      setActiveLink(SECTIONS.ABOUT)
-    } else if (
-      pos[SECTIONS.WORK].top < window.innerHeight &&
-      pos[SECTIONS.WORK].bottom >= offset
-    ) {
-      setActiveLink(SECTIONS.WORK)
-    } else if (
-      pos[SECTIONS.SKILLS].top < window.innerHeight &&
-      pos[SECTIONS.SKILLS].bottom >= offset
-    ) {
-      setActiveLink(SECTIONS.SKILLS)
-    } else if (
-      pos[SECTIONS.EDUCATION].top < window.innerHeight &&
-      pos[SECTIONS.EDUCATION].bottom >= offset
-    ) {
-      setActiveLink(SECTIONS.EDUCATION)
-    } else if (
-      pos[SECTIONS.CONTACT].top < window.innerHeight &&
-      pos[SECTIONS.CONTACT].bottom >= offset
-    ) {
-      setActiveLink(SECTIONS.CONTACT)
-    }
-  }
+  }, [])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -101,7 +63,7 @@ const Nav = ({
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [handleScroll])
 
   return (
     <div>

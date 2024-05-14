@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 import { SECTIONS } from 'common/constants'
 import InfoSection from 'components/InfoSection'
 import Section from '../Section'
-import { EducationType, InfoSectionProps } from 'common/types'
+import { EducationType, SectionInfoProps } from 'common/types'
 import EDUCATION from './index.data'
 
 const Education = forwardRef<HTMLDivElement>((_, ref) => (
@@ -11,7 +11,7 @@ const Education = forwardRef<HTMLDivElement>((_, ref) => (
     <InfoSection
       color="Blue-Yellow"
       sectionInfo={EDUCATION.map(
-        (e: EducationType): InfoSectionProps => ({
+        (e: EducationType): SectionInfoProps => ({
           id: e.id,
           info: {
             title: e.school,

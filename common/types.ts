@@ -1,3 +1,5 @@
+import { ComponentType, ReactElement, ReactNode } from 'react'
+
 interface DateType {
   month?: number
   year: number
@@ -26,7 +28,7 @@ export interface EducationType {
   school: string
   study: string
   dates: Dates
-  description: React.ReactNode
+  description: ReactNode
   hasFade?: FADE_POSITION
 }
 
@@ -48,13 +50,13 @@ export interface InfoCardProps {
   subtitle: string
   dates: Dates
   description?: {
-    element?: React.ReactNode
-    text?: React.ReactNode[]
+    element?: ReactNode
+    text?: ReactNode[]
     skills?: string
   }
 }
 
-export interface InfoSectionProps {
+export interface SectionInfoProps {
   id: string
   info: InfoCardProps
   hasFade?: FADE_POSITION
@@ -66,7 +68,7 @@ export interface WorkType {
   company: string
   dates: Dates
   description?: {
-    text: React.ReactNode[]
+    text: ReactNode[]
     skills: string
   }
 }
@@ -83,8 +85,8 @@ export type SkillType = {
   text?: string
   skill?: {
     icon: {
-      default: React.ReactElement
-      animated?: React.ReactElement
+      default: ReactElement
+      animated?: ReactElement
       animation?: ANIMATION
     }
     label: string
@@ -96,4 +98,10 @@ export interface FormInput {
   email: string
   subject: string
   message: string
+}
+
+export interface ProjectType {
+  title: string
+  description: string
+  component: ComponentType
 }

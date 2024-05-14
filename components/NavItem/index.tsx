@@ -12,11 +12,11 @@ interface Props {
 const NavItem = (props: Props) => {
   return (
     <li onClick={props.onClick}>
-      <Link passHref href={props.to}>
+      <Link passHref href={props.to} legacyBehavior>
         <StyledA isActive={props.isActive}>{props.name}</StyledA>
       </Link>
     </li>
-  )
+  );
 }
 
 export default NavItem

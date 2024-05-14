@@ -6,9 +6,10 @@ type NavLink = {
   path: string
 }
 
-const NAV_LINKS: NavLink[] = [
+export const NAV_LINKS: NavLink[] = [
   { id: SECTIONS.ABOUT, label: 'About Me', path: `/#${SECTIONS.ABOUT}` },
   { id: SECTIONS.WORK, label: 'Work Experiences', path: `/#${SECTIONS.WORK}` },
+  { id: SECTIONS.PROJECTS, label: 'Projects', path: `/#${SECTIONS.PROJECTS}` },
   { id: SECTIONS.SKILLS, label: 'Skills', path: `/#${SECTIONS.SKILLS}` },
   {
     id: SECTIONS.EDUCATION,
@@ -18,4 +19,11 @@ const NAV_LINKS: NavLink[] = [
   { id: SECTIONS.CONTACT, label: 'Contact', path: `/#${SECTIONS.CONTACT}` },
 ]
 
-export default NAV_LINKS
+export const ORDERED_SECTIONS: SECTIONS[] = [
+  SECTIONS.ABOUT,
+  SECTIONS.WORK,
+  SECTIONS.PROJECTS,
+  SECTIONS.SKILLS,
+  SECTIONS.EDUCATION,
+  SECTIONS.CONTACT,
+]

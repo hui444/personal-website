@@ -39,7 +39,7 @@ const WORK_EXPERIENCES: WorkType[] = [
         'Leverage React Leaflet and RxJS to construct interactive map objects and validations in the web application, streamlining map annotation processes for greater efficiency',
       ],
       skills:
-        'TypeScript, React, Redux, RxJS, ReactLeaflet, CSS, Git, Figma, C#, MVC',
+        'TypeScript, React, Redux, RxJS, ReactLeaflet, CSS, Git, Figma, C#, MVC, PostgreSQL',
     },
   },
   {

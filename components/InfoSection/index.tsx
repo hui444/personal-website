@@ -1,16 +1,18 @@
-import { InfoSectionProps } from 'common/types'
+import { SectionInfoProps } from 'common/types'
 import InfoCard, { CardColors } from 'components/InfoCard'
 import { ContentContainer, InfoContainer, VerticalLine } from './styles'
 
+interface InfoSectionProps {
+  color?: 'Blue-Yellow' | 'Yellow-Blue'
+  sectionInfo?: SectionInfoProps[]
+  showDuration?: boolean
+}
+
 const InfoSection = ({
-  color,
+  color = 'Yellow-Blue',
   sectionInfo,
   showDuration,
-}: {
-  color?: 'Blue-Yellow' | 'Yellow-Blue'
-  sectionInfo?: InfoSectionProps[]
-  showDuration?: boolean
-}) => (
+}: InfoSectionProps) => (
   <ContentContainer>
     <VerticalLine />
     <InfoContainer>
@@ -40,9 +42,5 @@ const InfoSection = ({
     </InfoContainer>
   </ContentContainer>
 )
-
-InfoSection.defaultProps = {
-  color: 'Yellow-Blue',
-}
 
 export default InfoSection

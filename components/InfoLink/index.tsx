@@ -29,15 +29,10 @@ const InfoLink = (props: Props) => {
       {content}
     </StyledA>
   ) : (
-    <Link passHref href={props.href}>
+    <Link passHref href={props.href} legacyBehavior>
       <StyledA changeStroke={props.changeStroke}>{content}</StyledA>
     </Link>
   )
 }
 
 export default InfoLink
-
-InfoLink.defaultProps = {
-  openNewTab: false,
-  changeStroke: false,
-}

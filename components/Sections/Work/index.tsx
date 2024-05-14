@@ -1,7 +1,9 @@
-import { SECTIONS } from 'common/constants'
-import { InfoSectionProps, WorkType } from 'common/types'
-import InfoSection from 'components/InfoSection'
 import { forwardRef } from 'react'
+
+import { SECTIONS } from 'common/constants'
+import { SectionInfoProps, WorkType } from 'common/types'
+import InfoSection from 'components/InfoSection'
+
 import Section from '../Section'
 import WORK_EXPERIENCES from './index.data'
 
@@ -10,7 +12,7 @@ const Work = forwardRef<HTMLDivElement>((_, ref) => (
     <InfoSection
       color="Yellow-Blue"
       sectionInfo={WORK_EXPERIENCES.map(
-        (we: WorkType): InfoSectionProps => ({
+        (we: WorkType): SectionInfoProps => ({
           id: we.id,
           info: {
             title: we.title,
