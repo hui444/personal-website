@@ -15,12 +15,12 @@ const Skill = ({
 }) => (
   <MainContainer>
     <>
-      {/* <i className="default">{icon.default}</i>
+      <i className="default">{icon.default}</i>
       <i className="animated">
         {icon.animated ?? (
           <StyledIcon type={icon.animation}>{icon.default}</StyledIcon>
         )}
-      </i> */}
+      </i>
     </>
     <label>{label}</label>
   </MainContainer>

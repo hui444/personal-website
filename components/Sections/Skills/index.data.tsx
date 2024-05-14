@@ -1,32 +1,32 @@
 import Image from 'next/image'
 
 // programming languages
-import CSS3 from '../../../assets/icons/css3.svg'
-import HTML5 from '../../../assets/icons/html5.svg'
+import CSS3 from 'public/icons/css3.svg'
+import HTML5 from 'public/icons/html5.svg'
 
-import Java from '../../../assets/icons/java.svg'
-import JavaAnimated from '../../../assets/icons/animated/java.gif'
+import Java from 'public/icons/java.svg'
+import JavaAnimated from 'public/icons/animated/java.gif'
 
-import JavaScript from '../../../assets/icons/javascript.svg'
-import JavaScriptAnimated from '../../../assets/icons/animated/javascript.gif'
+import JavaScript from 'public/icons/javascript.svg'
+import JavaScriptAnimated from 'public/icons/animated/javascript.gif'
 
-import TypeScript from '../../../assets/icons/typescript.svg'
+import TypeScript from 'public/icons/typescript.svg'
 
-import Python from '../../../assets/icons/python.svg'
-import PythonAnimated from '../../../assets/icons/animated/python.gif'
+import Python from 'public/icons/python.svg'
+import PythonAnimated from 'public/icons/animated/python.gif'
 
-import C from '../../../assets/icons/c.svg'
-import CSharp from '../../../assets/icons/c-sharp.svg'
-import CPP from '../../../assets/icons/c++.svg'
-import Swift from '../../../assets/icons/swift.svg'
+import C from 'public/icons/c.svg'
+import CSharp from 'public/icons/c-sharp.svg'
+import CPP from 'public/icons/c++.svg'
+import Swift from 'public/icons/swift.svg'
 
 // tools
-import React from '../../../assets/icons/react.svg'
-import Redux from '../../../assets/icons/redux.svg'
-import NodeJS from '../../../assets/icons/nodejs.svg'
-import PostgreSQL from '../../../assets/icons/postgresql.svg'
-import ASPNET from '../../../assets/icons/net-framework.svg'
-import SASS from '../../../assets/icons/sass.svg'
+import React from 'public/icons/react.svg'
+import Redux from 'public/icons/redux.svg'
+import NodeJS from 'public/icons/nodejs.svg'
+import PostgreSQL from 'public/icons/postgresql.svg'
+import ASPNET from 'public/icons/net-framework.svg'
+import SASS from 'public/icons/sass.svg'
 
 import { SkillType, ANIMATION } from 'common/types'
 
@@ -37,36 +37,54 @@ const SKILLS: SkillType[] = [
     skill: [
       {
         icon: {
-          default: <CSS3 />,
+          default: <Image src={CSS3} alt="CSS3 icon" height={48} width={48} />,
           animation: ANIMATION.ZOOM,
         },
         label: 'CSS 3',
       },
       {
         icon: {
-          default: <HTML5 />,
+          default: (
+            <Image src={HTML5} alt="HTML5 icon" height={48} width={48} />
+          ),
           animation: ANIMATION.ZOOM,
         },
         label: 'HTML 5',
       },
       {
         icon: {
-          default: <Java />,
-          animated: (
-            <Image src={JavaAnimated} alt="Java gif" height={48} width={48} />
+          default: (
+            <Image
+              src={TypeScript}
+              alt="TypeScript icon"
+              height={48}
+              width={48}
+            />
           ),
+          animation: ANIMATION.ZOOM,
         },
-        label: 'Java',
+        label: 'TypeScript',
       },
       {
         icon: {
-          default: <JavaScript />,
+          default: (
+            <Image
+              src={JavaScript}
+              alt="JavaScript icon"
+              height={48}
+              width={48}
+            />
+          ),
           animated: (
             <Image
               src={JavaScriptAnimated}
               alt="JavaScript gif"
               height={48}
               width={48}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           ),
         },
@@ -74,20 +92,19 @@ const SKILLS: SkillType[] = [
       },
       {
         icon: {
-          default: <TypeScript />,
-          animation: ANIMATION.ZOOM,
-        },
-        label: 'TypeScript',
-      },
-      {
-        icon: {
-          default: <Python />,
+          default: (
+            <Image src={Python} alt="Python icon" height={48} width={48} />
+          ),
           animated: (
             <Image
               src={PythonAnimated}
               alt="Python gif"
               height={48}
               width={48}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           ),
         },
@@ -95,25 +112,49 @@ const SKILLS: SkillType[] = [
       },
       {
         icon: {
-          default: <C />,
-        },
-        label: 'C',
-      },
-      {
-        icon: {
-          default: <CSharp />,
+          default: (
+            <Image src={CSharp} alt="C Sharp icon" height={48} width={48} />
+          ),
         },
         label: 'C#',
       },
       {
         icon: {
-          default: <CPP />,
+          default: <Image src={Java} alt="Java icon" height={48} width={48} />,
+          animated: (
+            <Image
+              src={JavaAnimated}
+              alt="Java gif"
+              height={48}
+              width={48}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
+            />
+          ),
+        },
+        label: 'Java',
+      },
+      {
+        icon: {
+          default: <Image src={C} alt="C icon" height={48} width={48} />,
+        },
+        label: 'C',
+      },
+      {
+        icon: {
+          default: (
+            <Image src={CPP} alt="C Plus Plus icon" height={48} width={48} />
+          ),
         },
         label: 'C++',
       },
       {
         icon: {
-          default: <Swift />,
+          default: (
+            <Image src={Swift} alt="Swift icon" height={48} width={48} />
+          ),
           animation: ANIMATION.SHAKE,
         },
         label: 'Swift',
@@ -126,40 +167,55 @@ const SKILLS: SkillType[] = [
     skill: [
       {
         icon: {
-          default: <React />,
+          default: (
+            <Image src={React} alt="React icon" height={48} width={48} />
+          ),
         },
         label: 'React',
       },
       {
         icon: {
-          default: <Redux />,
+          default: (
+            <Image src={Redux} alt="Redux icon" height={48} width={48} />
+          ),
           animation: ANIMATION.SHAKE,
         },
         label: 'Redux',
       },
       {
         icon: {
-          default: <NodeJS />,
+          default: (
+            <Image src={NodeJS} alt="NodeJS icon" height={48} width={48} />
+          ),
           animation: ANIMATION.ZOOM,
         },
         label: 'NodeJS',
       },
       {
         icon: {
-          default: <PostgreSQL />,
+          default: (
+            <Image
+              src={PostgreSQL}
+              alt="PostgreSQL icon"
+              height={48}
+              width={48}
+            />
+          ),
           animation: ANIMATION.ZOOM,
         },
         label: 'PostgreSQL',
       },
       {
         icon: {
-          default: <ASPNET />,
+          default: (
+            <Image src={ASPNET} alt="ASP.NET icon" height={48} width={48} />
+          ),
         },
         label: 'ASP.NET',
       },
       {
         icon: {
-          default: <SASS />,
+          default: <Image src={SASS} alt="SASS icon" height={48} width={48} />,
           animation: ANIMATION.SHAKE,
         },
         label: 'SASS/SCSS',

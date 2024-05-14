@@ -13,12 +13,13 @@ import {
   SNACKBAR_ANIMATION_DURATION,
 } from 'common/constants'
 import { FormInput } from 'common/types'
-import GitHubIcon from '../../../assets/icons/github-blue.svg'
-import LinkedInIcon from '../../../assets/icons/linkedin-blue.svg'
+import GitHubIcon from 'public/icons/github-blue.svg'
+import LinkedInIcon from 'public/icons/linkedin-blue.svg'
 import { sendToEmail, sendToTele } from 'common/helper'
-import MailIcon from '../../../assets/icons/mail-blue.svg'
+import MailIcon from 'public/icons/mail-blue.svg'
 
 import { ContentContainer, StyledText, FormContainer } from './styles'
+import Image from 'next/image'
 
 const Contact = React.forwardRef<HTMLDivElement>((_, ref) => {
   const {
@@ -67,14 +68,28 @@ const Contact = React.forwardRef<HTMLDivElement>((_, ref) => {
             You can find me on
             <InfoLink
               openNewTab
-              icon={<GitHubIcon height={24} width={24} />}
+              icon={
+                <Image
+                  src={GitHubIcon}
+                  alt="Github Icon"
+                  height={24}
+                  width={24}
+                />
+              }
               label="GitHub"
               href="https://github.com/hui444"
             />
             or
             <InfoLink
               openNewTab
-              icon={<LinkedInIcon height={24} width={24} />}
+              icon={
+                <Image
+                  src={LinkedInIcon}
+                  alt="LinkedIn Icon"
+                  height={24}
+                  width={24}
+                />
+              }
               label="LinkedIn"
               href="https://www.linkedin.com/in/hui-hui-fang/"
             />
@@ -82,7 +97,9 @@ const Contact = React.forwardRef<HTMLDivElement>((_, ref) => {
           <StyledText>
             or email me at
             <InfoLink
-              icon={<MailIcon height={24} width={24} />}
+              icon={
+                <Image src={MailIcon} alt="Mail icon" height={24} width={24} />
+              }
               label="huihuiwork@yahoo.com"
               href="mailto:huihuiwork@yahoo.com"
               changeStroke

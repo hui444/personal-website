@@ -12,13 +12,15 @@ const ProjectsContainer = styled.div`
   gap: 2rem;
 `
 
-const ProjectContainer = styled.div`
+const ProjectContainer = styled.div<{ reverse?: boolean }>`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
   justify-content: space-between;
+  gap: 3rem;
 
   @media screen and (max-width: ${BREAKPOINT}) {
     flex-direction: column;
+    gap: 2rem;
   }
 `
 
@@ -26,15 +28,10 @@ const ProjectDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-block: auto;
-  margin-right: 3rem;
   white-space: pre;
 
   > p {
     white-space: break-spaces;
-  }
-
-  @media screen and (max-width: ${BREAKPOINT}) {
-    margin: 0 0 2rem;
   }
 `
 
@@ -50,8 +47,8 @@ const ProjectTitle = styled.h2`
 const Projects = forwardRef<HTMLDivElement>((_, ref) => (
   <Section ref={ref} title="My Projects" section={SECTIONS.PROJECTS}>
     <ProjectsContainer>
-      {PROJECTS.map(({ title, description, component: Component }) => (
-        <ProjectContainer key={title}>
+      {PROJECTS.map(({ title, description, component: Component }, index) => (
+        <ProjectContainer key={title} reverse={index % 2 !== 0}>
           <ProjectDetailsContainer>
             <ProjectTitle>{title}</ProjectTitle>
             <p>{description}</p>

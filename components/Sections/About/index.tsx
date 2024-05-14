@@ -25,10 +25,14 @@ const About = forwardRef<HTMLDivElement>((_, ref) => (
       <Image
         src={portraitSrc}
         alt="Hui Hui's self portrait"
-        objectFit="contain"
-        objectPosition="right bottom"
-        layout="responsive"
         placeholder="blur"
+        sizes="100vw"
+        style={{
+          width: '100%',
+          height: 'auto',
+          objectFit: 'contain',
+          objectPosition: 'right bottom',
+        }}
       />
     </ImageContainer>
   </MainContainer>

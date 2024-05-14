@@ -1,7 +1,8 @@
-import SuccessIcon from '../../assets/icons/snackbar/success-tick.svg'
-import ErrorIcon from '../../assets/icons/snackbar/error-cross.svg'
+import SuccessIcon from 'public/icons/snackbar/success-tick.svg'
+import ErrorIcon from 'public/icons/snackbar/error-cross.svg'
 
 import { SnackbarContainer, StyledSnackbar } from './styles'
+import Image from 'next/image'
 
 const Snackbar = ({
   type,
@@ -15,7 +16,7 @@ const Snackbar = ({
   isVisible && type ? (
     <SnackbarContainer>
       <StyledSnackbar>
-        {type === 'success' ? <SuccessIcon /> : <ErrorIcon />}
+        {type === 'success' ? <Image src={SuccessIcon} alt="success" /> : <Image src={ErrorIcon} alt="error" />}
         <p>{message ?? ''}</p>
       </StyledSnackbar>
     </SnackbarContainer>

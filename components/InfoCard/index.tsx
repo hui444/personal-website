@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
 
+import Arrow from 'public/arrow/chevron-down.svg'
 import { FADE_POSITION, InfoCardProps } from 'common/types'
 import { getDuration, stringifyDate } from 'common/helper'
 
@@ -19,7 +21,6 @@ import {
   DatesBackground,
   DescriptionList,
 } from './styles'
-import Arrow from '../../assets/arrow/chevron-down.svg'
 
 export enum CardColors {
   YELLOW = 'yellow',
@@ -92,70 +93,14 @@ const InfoCard = ({
                 )}
               </DescriptionList>
             ))}
-          {/* {info.description && (
-            <Description visible={isExpanded}>
-              {info.description.text?.map((text, index) => (
-                <li key={index}>{text}</li>
-              ))}
-              {info.description.skills && (
-                <li key={`${info.title}__relevant-skills`}>
-                  <BoldText>Relevant skills: </BoldText>
-                  {info.description.skills}
-                </li>
-              )}
-            </Description>
-          )} */}
+
           <ArrowContainer
             disabled={disabled}
             isExpanded={isExpanded}
             onClick={() => !disabled && setIsExpanded(!isExpanded)}
           >
-            <Arrow />
+            <Image src={Arrow} alt="chevron icon" />
           </ArrowContainer>
-          {/* {info.description &&
-            (info.description.formattedText ? (
-              <Description visible={isExpanded}>
-                <StyledH3>{info.description.formattedText.title}</StyledH3>
-                {info.description.formattedText.content.map(
-                  (content, index) => (
-                    <React.Fragment key={`${content.title}-${index}`}>
-                      {content.title && <StyledP>{content.title}</StyledP>}
-                      <StyledList>
-                        {content.list.map((item: string) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </StyledList>
-                    </React.Fragment>
-                  )
-                )}
-              </Description>
-            ) : (
-              <DescriptionList visible={isExpanded}>
-                {info.description.list?.map((text, index) => {
-                  if (typeof text === 'string' || text instanceof String) {
-                    return <li key={`${text}-${index}`}>{text}</li>
-                  }
-                  return (
-                    <li key={`${text.text}-${index}`}>
-                      {replaceWithLink(text.text, text.anchor)}
-                    </li>
-                  )
-                })}
-                {info.description.skills && (
-                  <li key={`${info.title}__relevant-skills`}>
-                    <BoldText>Relevant skills: </BoldText>
-                    {info.description.skills}
-                  </li>
-                )}
-              </DescriptionList>
-            ))}
-          <ArrowContainer
-            disabled={disabled}
-            isExpanded={isExpanded}
-            onClick={() => !disabled && setIsExpanded(!isExpanded)}
-          >
-            <Arrow />
-          </ArrowContainer> */}
         </Body>
       </StyledBackground>
       {isEnd && <Filler />}
