@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import type { NextPage } from 'next/types'
 import {
   useRef,
@@ -14,26 +13,13 @@ import Nav from 'components/Nav'
 import Layout from 'components/Layout'
 import LoadingSpinner from 'components/LoadingSpinner'
 import { ORDERED_SECTIONS } from 'components/Nav/index.data'
+import About from 'components/Sections/About'
+import Work from 'components/Sections/Work'
+import Skills from 'components/Sections/Skills'
+import Education from 'components/Sections/Education'
+import Contact from 'components/Sections/Contact'
+import Projects from 'components/Sections/Projects'
 import { MainContainer } from 'styles'
-
-const About = dynamic(() => import('components/Sections/About'), {
-  suspense: true,
-})
-const Education = dynamic(() => import('components/Sections/Education'), {
-  suspense: true,
-})
-const Skills = dynamic(() => import('components/Sections/Skills'), {
-  suspense: true,
-})
-const Work = dynamic(() => import('components/Sections/Work'), {
-  suspense: true,
-})
-const Contact = dynamic(() => import('components/Sections/Contact'), {
-  suspense: true,
-})
-const Projects = dynamic(() => import('components/Sections/Projects'), {
-  suspense: true,
-})
 
 const SECTION_TO_COMPONENT_MAP: Record<
   SECTIONS,
@@ -48,12 +34,12 @@ const SECTION_TO_COMPONENT_MAP: Record<
 }
 
 const Home: NextPage = () => {
-  const aboutSectionRef = useRef<HTMLDivElement>(null)
-  const educationSectionRef = useRef<HTMLDivElement>(null)
-  const skillsSectionRef = useRef<HTMLDivElement>(null)
-  const workSectionRef = useRef<HTMLDivElement>(null)
-  const contactSectionRef = useRef<HTMLDivElement>(null)
-  const projectsSectionRef = useRef<HTMLDivElement>(null)
+  const aboutSectionRef = useRef(null)
+  const educationSectionRef = useRef(null)
+  const skillsSectionRef = useRef(null)
+  const workSectionRef = useRef(null)
+  const contactSectionRef = useRef(null)
+  const projectsSectionRef = useRef(null)
 
   const SECTION_TO_REF_MAP: Record<
     SECTIONS,
@@ -67,7 +53,14 @@ const Home: NextPage = () => {
       [SECTIONS.CONTACT]: contactSectionRef,
       [SECTIONS.PROJECTS]: projectsSectionRef,
     }),
-    []
+    [
+      aboutSectionRef,
+      workSectionRef,
+      skillsSectionRef,
+      educationSectionRef,
+      contactSectionRef,
+      projectsSectionRef,
+    ]
   )
 
   const ORDERED_COMPONENTS: {

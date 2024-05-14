@@ -29,14 +29,15 @@ const Nav = ({
   refs: Record<SECTIONS, RefObject<HTMLDivElement>>
 }) => {
   const router = useRouter()
-  const scrollToSection = (eleRef: RefObject<HTMLDivElement>) => {
+  const scrollToSection = useCallback((eleRef: RefObject<HTMLDivElement>) => {
     if (eleRef.current) {
       window.scrollTo({
         top: eleRef.current.offsetTop - SECTION_OFFSET,
         behavior: 'smooth',
       })
     }
-  }
+  }, [])
+
   const defaultActiveLink =
     router.asPath === '/'
       ? SECTIONS.ABOUT
@@ -79,17 +80,18 @@ const Nav = ({
         </HamburgerButton>
         <Logo />
         <StyledUl isActive={sidebarIsOpen}>
-          {NAV_LINKS.map((navItem) => (
+          {NAV_LINKS.map(({ id, label, path }) => (
             <NavItem
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault()
                 setSidebarIsOpen(false)
-                setActiveLink(navItem.id)
-                scrollToSection(refs[navItem.id])
+                setActiveLink(id)
+                scrollToSection(refs[id])
               }}
-              name={navItem.label}
-              to={navItem.path}
-              key={navItem.id}
-              isActive={activeLink === navItem.id}
+              name={label}
+              to={path}
+              key={id}
+              isActive={activeLink === id}
             />
           ))}
         </StyledUl>

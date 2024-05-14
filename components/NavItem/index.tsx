@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { MouseEventHandler } from 'react'
 
 import { StyledA } from './styles'
 
@@ -6,7 +7,7 @@ interface Props {
   name: string
   to: string
   isActive: boolean
-  onClick: () => void
+  onClick: MouseEventHandler<HTMLLIElement>
 }
 
 const NavItem = (props: Props) => {
@@ -16,7 +17,7 @@ const NavItem = (props: Props) => {
         <StyledA isActive={props.isActive}>{props.name}</StyledA>
       </Link>
     </li>
-  );
+  )
 }
 
 export default NavItem
