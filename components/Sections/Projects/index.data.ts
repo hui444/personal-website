@@ -4,6 +4,7 @@ import RunTogetherPrototype from 'components/FigmaPrototypes/RunTogetherPrototyp
 import CapstoneProjectShowcase from 'components/ProjectShowcase/CapstoneProjectShowcase'
 import CaptVReProjectShowcase from 'components/ProjectShowcase/CaptVReProjectShowcase'
 import NUSPlannerProjectShowcase from 'components/ProjectShowcase/NUSPlannerProjectShowcase'
+import RHAppShowcase from 'components/ProjectShowcase/RHAppShowcase'
 
 export const PROJECTS: ProjectType[] = [
   {
@@ -11,6 +12,12 @@ export const PROJECTS: ProjectType[] = [
     description:
       'A Virtual Reality photography based project, created using Unity, geared towards delivering a true-to-life photography experience for beginners to learn how to use a camera and for professionals to hone their craft in a VR environment.',
     component: CaptVReProjectShowcase,
+  },
+  {
+    title: 'Raffles Hall Application (Supper Feature)',
+    description:
+      'A web application created with ReactJS and Redux, aimed to simplify supper order collation by allowing user to create a supper group, join existing supper groups, add order to supper group and track payments after the order has been completed.',
+    component: RHAppShowcase,
   },
   {
     title: 'Laser Tag Capstone Project',
