@@ -1,13 +1,17 @@
 import Image from 'next/image'
 
 import NUSPlannerPoster from 'assets/images/NUSPlannerPoster.jpg'
+import styled from 'styled-components'
+
+const NUSPlannerPosterImage = styled(Image)`
+  height: auto;
+  margin: auto;
+  width: 400px;
+  max-width: 100%;
+`
 
 const NUSPlannerProjectShowcase = () => (
-  <Image
-    src={NUSPlannerPoster}
-    alt="NUSPlanner Poster"
-    style={{ height: 'auto', margin: 'auto', width: '400px', maxWidth: '100%' }}
-  />
+  <NUSPlannerPosterImage src={NUSPlannerPoster} alt="NUSPlanner Poster" />
 )
 
 export default NUSPlannerProjectShowcase

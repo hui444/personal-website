@@ -1,9 +1,16 @@
 import { ProjectType } from 'common/types'
 import HikingHelperPrototype from 'components/FigmaPrototypes/HikingHelperPrototype'
 import RunTogetherPrototype from 'components/FigmaPrototypes/RunTogetherPrototype'
+import CapstoneProjectShowcase from 'components/ProjectShowcase/CapstoneProjectShowcase'
 import NUSPlannerProjectShowcase from 'components/ProjectShowcase/NUSPlannerProjectShowcase'
 
 export const PROJECTS: ProjectType[] = [
+  {
+    title: 'Laser Tag Capstone Project',
+    description:
+      'A laser tag game that uses hardware to detect movements and shots by a player, Artificial Intelligence to categorize the action into "Shield", "Grenade" or "Reload", and Agumented Reality to show game play, created with Unity.',
+    component: CapstoneProjectShowcase,
+  },
   {
     title: 'RunTogether Design Project',
     description:

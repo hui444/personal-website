@@ -88,15 +88,8 @@ const WORK_EXPERIENCES: WorkType[] = [
       text: [
         <React.Fragment key="work-experience-1__RHApp">
           Innovatively led the creation of a Progressive Web Application,
-          improving the digital experience for 400 residents (
-          <StyledLink
-            href="http://www.rhapp.lol"
-            target="_blank"
-            rel="noreferrer"
-          >
-            RHapp
-          </StyledLink>
-          )
+          improving the digital experience for 400 residents, with features like
+          facility booking
         </React.Fragment>,
         'Collaborated with backend developers and designers to build the web application',
         'Led a team to create a comprehensive feature to help ease supper collation amongst hall resident (March - July 2021)',
