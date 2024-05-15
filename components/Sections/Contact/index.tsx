@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import Image from 'next/image'
 
 import InfoLink from 'components/InfoLink'
 import Section from 'components/Sections/Section'
@@ -19,9 +20,8 @@ import { sendToEmail, sendToTele } from 'common/helper'
 import MailIcon from 'public/icons/mail-blue.svg'
 
 import { ContentContainer, StyledText, FormContainer } from './styles'
-import Image from 'next/image'
 
-const Contact = React.forwardRef<HTMLDivElement>((_, ref) => {
+const Contact = memo(function Contact() {
   const {
     register,
     handleSubmit,
@@ -51,7 +51,7 @@ const Contact = React.forwardRef<HTMLDivElement>((_, ref) => {
   })
 
   return (
-    <Section ref={ref} title="Contact Me!" isLast section={SECTIONS.CONTACT}>
+    <Section title="Contact Me!" isLast section={SECTIONS.CONTACT}>
       <Snackbar
         isVisible={Boolean(submissionResult)}
         type={submissionResult}

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { RefObject, useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, memo } from 'react'
 
 import Logo from 'components/Logo'
 import NavItem from 'components/NavItem'
@@ -23,20 +23,25 @@ const DEFAULT_BOUNDING_CLIENT_RECT: Pick<DOMRect, 'top' | 'bottom'> = {
 
 const OFFSET = SECTION_OFFSET + 5
 
-const Nav = ({
-  refs,
-}: {
-  refs: Record<SECTIONS, RefObject<HTMLDivElement>>
-}) => {
+const Nav = memo(function Nav() {
   const router = useRouter()
-  const scrollToSection = useCallback((eleRef: RefObject<HTMLDivElement>) => {
-    if (eleRef.current) {
-      window.scrollTo({
-        top: eleRef.current.offsetTop - SECTION_OFFSET,
-        behavior: 'smooth',
-      })
-    }
-  }, [])
+
+  const getBoundingRectBySection = useCallback(
+    (section: SECTIONS) =>
+      document.querySelector(`.${section}`)?.getBoundingClientRect() ??
+      DEFAULT_BOUNDING_CLIENT_RECT,
+    []
+  )
+
+  const scrollToSection = useCallback(
+    (section: SECTIONS) => {
+      const top =
+        getBoundingRectBySection(section).top + window.scrollY - SECTION_OFFSET
+
+      window.scrollTo({ top, behavior: 'smooth' })
+    },
+    [getBoundingRectBySection]
+  )
 
   const defaultActiveLink =
     router.asPath === '/'
@@ -47,16 +52,14 @@ const Nav = ({
 
   const handleScroll = useCallback(() => {
     for (const section of ORDERED_SECTIONS) {
-      const { top, bottom } =
-        document.querySelector(`.${section}`)?.getBoundingClientRect() ??
-        DEFAULT_BOUNDING_CLIENT_RECT
+      const { top, bottom } = getBoundingRectBySection(section)
 
       if (top < window.innerHeight && bottom >= OFFSET) {
         setActiveLink(section)
         return
       }
     }
-  }, [])
+  }, [getBoundingRectBySection])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -86,7 +89,7 @@ const Nav = ({
                 e.preventDefault()
                 setSidebarIsOpen(false)
                 setActiveLink(id)
-                scrollToSection(refs[id])
+                scrollToSection(id)
               }}
               name={label}
               to={path}
@@ -98,6 +101,6 @@ const Nav = ({
       </StyledNav>
     </div>
   )
-}
+})
 
 export default Nav

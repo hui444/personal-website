@@ -35,8 +35,8 @@ const WORK_EXPERIENCES: WorkType[] = [
     },
     description: {
       text: [
-        'Develop and implement software features that enhance user experience, ensuring optimal functionality and debugging where necessary',
-        'Leverage React Leaflet and RxJS to construct interactive map objects and validations in the web application, streamlining map annotation processes for greater efficiency',
+        'Developed and implement software features that enhance user experience, ensuring optimal functionality and debugging where necessary',
+        'Leveraged React Leaflet and RxJS to construct interactive map objects and validations in the web application, streamlining map annotation processes for greater efficiency',
       ],
       skills:
         'TypeScript, React, Redux, RxJS, ReactLeaflet, CSS, Git, Figma, C#, MVC, PostgreSQL',
@@ -52,10 +52,10 @@ const WORK_EXPERIENCES: WorkType[] = [
     },
     description: {
       text: [
-        'Implement cross-platform web-based features, user interfaces, Node.js and Golang based services to support community safety in TikTok',
+        'Implemented cross-platform web-based features, user interfaces, Node.js and Golang based services to support community safety in TikTok',
         'Responsible for optimizing scalability, reliability and responsiveness of web-based application pages, and to deliver compelling end user experience',
-        'Implement complex web applications with efficient and reusable front-end systems',
-        'Collaborate with product design, product management, and software engineering teams to deliver compelling user-facing products;',
+        'Implemented complex web applications with efficient and reusable front-end systems',
+        'Collaborated with product design, product management, and software engineering teams to deliver compelling user-facing products;',
       ],
       skills: 'JavaScript, React, HTML/CSS, Git, Figma',
     },
