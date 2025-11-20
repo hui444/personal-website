@@ -6,23 +6,23 @@ export const MainContainer = styled.div<{ isLast?: boolean }>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: 2rem;
+  padding-top: 3rem;
   ${(props) =>
     props.isLast &&
     css`
-      padding-bottom: 3rem;
+      padding-bottom: 4rem;
     `}
 
   h1 + div {
-    margin-top: 50px;
+    margin-top: 3rem;
   }
 
   @media screen and (max-width: ${BREAKPOINT}) {
-    padding-top: 0;
+    padding-top: 2rem;
     padding-bottom: 2rem;
 
     h1 + div {
-      margin-top: 20px;
+      margin-top: 1.5rem;
     }
   }
 `
@@ -32,4 +32,14 @@ export const ContentContainer = styled.div`
   max-width: calc(${MAX_CONTENT_WIDTH} + 4rem);
   width: 100%;
   margin: auto;
+  animation: fadeIn 0.6s ease-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `

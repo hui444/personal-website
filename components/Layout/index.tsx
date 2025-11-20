@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { ReactNode } from 'react'
 
-import { MainContainer, StyledMain } from './styles'
+import { MainContainer, StyledMain, BackgroundBlob } from './styles'
 
 const Layout = ({ children }: { children: ReactNode }) => (
   <>
@@ -11,6 +11,41 @@ const Layout = ({ children }: { children: ReactNode }) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <MainContainer>
+      <BackgroundBlob
+        top="10%"
+        right="15%"
+        color="rgba(14, 165, 233, 0.25)"
+        size="400px"
+        delay="15s"
+      />
+      <BackgroundBlob
+        top="60%"
+        left="10%"
+        color="rgba(244, 114, 182, 0.25)"
+        size="500px"
+        delay="20s"
+      />
+      <BackgroundBlob
+        bottom="10%"
+        right="20%"
+        color="rgba(167, 139, 250, 0.25)"
+        size="450px"
+        delay="18s"
+      />
+      <BackgroundBlob
+        bottom="5%"
+        left="15%"
+        color="rgba(52, 211, 153, 0.2)"
+        size="350px"
+        delay="22s"
+      />
+      <BackgroundBlob
+        top="40%"
+        right="5%"
+        color="rgba(251, 146, 60, 0.2)"
+        size="300px"
+        delay="16s"
+      />
       <StyledMain>{children}</StyledMain>
     </MainContainer>
   </>

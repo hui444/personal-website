@@ -1,6 +1,6 @@
 import { SectionInfoProps } from 'common/types'
 import InfoCard, { CardColors } from 'components/InfoCard'
-import { ContentContainer, InfoContainer, VerticalLine } from './styles'
+import { ContentContainer, InfoContainer } from './styles'
 
 interface InfoSectionProps {
   color?: 'Blue-Yellow' | 'Yellow-Blue'
@@ -14,17 +14,16 @@ const InfoSection = ({
   showDuration,
 }: InfoSectionProps) => (
   <ContentContainer>
-    <VerticalLine />
     <InfoContainer>
       {sectionInfo?.map((item, index) => (
         <InfoCard
+          key={item.id}
           datesColor={
             color === 'Blue-Yellow' ? CardColors.BLUE : CardColors.YELLOW
           }
           infoColor={
             color === 'Blue-Yellow' ? CardColors.YELLOW : CardColors.BLUE
           }
-          key={item.id}
           info={item.info}
           isEnd={index === sectionInfo.length - 1}
           isDefaultExpanded={

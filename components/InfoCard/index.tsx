@@ -17,8 +17,6 @@ import {
   Description,
   BoldText,
   ArrowContainer,
-  Filler,
-  DatesBackground,
   DescriptionList,
 } from './styles'
 
@@ -53,24 +51,18 @@ const InfoCard = ({
 
   const dateText = stringifyDate(info.dates)
   return (
-    <MainContainer>
-      <DatesContainer>
-        <DatesBackground
-          color={datesColor}
-          hasTopFade={hasFade === FADE_POSITION.TOP || info.dates?.isCurrent}
-          hasBottomFade={hasFade === FADE_POSITION.BOTTOM}
-        />
-        {dateText.split(' ').map((s, index) => (
-          <span key={`${info.title}__dates-${index}`}>{s}</span>
-        ))}
-      </DatesContainer>
-
+    <MainContainer color={infoColor}>
       <StyledBackground>
         <TitleSection color={infoColor}>
+          <DatesContainer color={datesColor}>
+            {dateText.split(' ').map((s, index) => (
+              <span key={`${info.title}__dates-${index}`}>{s}</span>
+            ))}
+          </DatesContainer>
           <Title>{info.title}</Title>
           <Subtitle>
             {info.subtitle}
-            {showDuration && ` | ${getDuration(info.dates)}`}
+            {showDuration && ` • ${getDuration(info.dates)}`}
           </Subtitle>
           <DatesSubtitle>{dateText}</DatesSubtitle>
         </TitleSection>
@@ -103,7 +95,6 @@ const InfoCard = ({
           </ArrowContainer>
         </Body>
       </StyledBackground>
-      {isEnd && <Filler />}
     </MainContainer>
   )
 }
