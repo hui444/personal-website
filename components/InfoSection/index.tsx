@@ -25,7 +25,6 @@ const InfoSection = ({
             color === 'Blue-Yellow' ? CardColors.YELLOW : CardColors.BLUE
           }
           info={item.info}
-          isEnd={index === sectionInfo.length - 1}
           isDefaultExpanded={
             index ===
             sectionInfo.findIndex(
@@ -34,7 +33,6 @@ const InfoSection = ({
                 Object.values(i.info.description).some((d) => d)
             )
           }
-          hasFade={item?.hasFade}
           showDuration={showDuration}
         />
       ))}
