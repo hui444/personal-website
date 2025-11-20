@@ -6,12 +6,32 @@ import { StyledLink } from './styles'
 
 const WORK_EXPERIENCES: WorkType[] = [
   {
+    id: 'work-6',
+    title: 'Software Engineer',
+    company: 'Ruckus Networks Singapore Pte. Ltd.',
+    dates: {
+      startDate: { month: 10, year: 2024 },
+      isCurrent: true,
+    },
+    description: {
+      text: [
+        'Delivered full-stack features across multiple services, including major strategic initiatives (Data Connector, MDU 360) enabling new customer segments and data exports',
+        'Built complete Azure Storage integration with UI, subscription management APIs, and retry functionality for data exports',
+        'Enhance UI performance for large datasets and fixed production bugs',
+        'Remediated CVEs and security vulnerabilities across multiple repositories, ensuring compliance standards',
+        'Developed PR reviewer agent using Google ADK and Vertex AI to automate code reviews and reduce cycle time',
+      ],
+      skills:
+        'TypeScript, React, Jest, NodeJS, PostgreSQL, Druid, Git, Kubernetes, Helm',
+    },
+  },
+  {
     id: 'work-5',
-    title: 'Software Developer, Map Creator',
+    title: 'Software Engineer, Map Creator',
     company: 'Motional Singapore Pte. Ltd.',
     dates: {
       startDate: { month: 7, year: 2023 },
-      isCurrent: true,
+      endDate: { month: 6, year: 2024 },
     },
     description: {
       text: [

@@ -5,8 +5,15 @@ import CapstoneProjectShowcase from 'components/ProjectShowcase/CapstoneProjectS
 import CaptVReProjectShowcase from 'components/ProjectShowcase/CaptVReProjectShowcase'
 import NUSPlannerProjectShowcase from 'components/ProjectShowcase/NUSPlannerProjectShowcase'
 import RHAppShowcase from 'components/ProjectShowcase/RHAppShowcase'
+import PayUpShowcase from 'components/ProjectShowcase/PayUpShowcase'
 
 export const PROJECTS: ProjectType[] = [
+  {
+    title: 'PayUp',
+    description:
+      'A bill splitting application built with Flutter, Firebase and GoLang backend. Aimed to simplify the process of splitting bills with friends and family.',
+    component: PayUpShowcase,
+  },
   {
     title: 'CAPTVRE VR Photography Project',
     description:

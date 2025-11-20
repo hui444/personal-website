@@ -15,6 +15,7 @@ export const ContentContainer = styled.div`
 export const SkillTitle = styled.h2`
   margin-block: 0 5px;
   ${(props) => props.theme.typo.default['body--bold']};
+  color: #ffffff;
 
   @media screen and (max-width: ${BREAKPOINT}) {
     ${(props) => props.theme.typo.mobile['body--bold']};
@@ -31,15 +32,17 @@ export const SkillsText = styled.p`
 `
 
 export const SkillsContainer = styled.div`
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 6rem);
-  grid-gap: 2rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 180px));
+  grid-gap: 1.5rem;
+  justify-content: center;
 
   @media screen and (max-width: ${BREAKPOINT}) {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 15px;
+    gap: 12px 16px;
+    justify-content: flex-start;
   }
 `

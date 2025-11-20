@@ -3,12 +3,18 @@ import { createGlobalStyle } from 'styled-components'
 import theme from './theme'
 
 export const GlobalStyle = createGlobalStyle`
+  html {
+    scroll-behavior: smooth;
+  }
+  
   html,
   body {
     padding: 0;
     margin: 0;
-    font-family: Open Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: ${theme.colors.pageBackground}
+    font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: ${theme.colors.pageBackground};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   a {
@@ -28,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
   h1 {
     ${theme.typo.default.h1};
     margin-block: 0;
+    color: #ffffff;
     
     @media screen and (max-width: ${BREAKPOINT}) {
       ${theme.typo.mobile.h1};
@@ -37,6 +44,7 @@ export const GlobalStyle = createGlobalStyle`
   h2 {
     ${theme.typo.default.h2};
     margin-block: 0;
+    color: #ffffff;
     
     @media screen and (max-width: ${BREAKPOINT}) {
       ${theme.typo.mobile.h2};
@@ -46,6 +54,7 @@ export const GlobalStyle = createGlobalStyle`
   h3 {
     ${theme.typo.default.h3};
     margin-block: 0;
+    color: rgba(255, 255, 255, 0.9);
     
     @media screen and (max-width: ${BREAKPOINT}) {
       ${theme.typo.mobile.h3}; 
@@ -55,6 +64,7 @@ export const GlobalStyle = createGlobalStyle`
   p {
     ${theme.typo.default.body};
     margin-block: 0;
+    color: ${theme.colors.neutral[300]};
     
     @media screen and (max-width: ${BREAKPOINT}) {
       ${theme.typo.mobile.body}; 

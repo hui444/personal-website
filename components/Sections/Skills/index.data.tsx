@@ -4,9 +4,6 @@ import Image from 'next/image'
 import CSS3 from 'public/icons/css3.svg'
 import HTML5 from 'public/icons/html5.svg'
 
-import Java from 'public/icons/java.svg'
-import JavaAnimated from 'public/icons/animated/java.gif'
-
 import JavaScript from 'public/icons/javascript.svg'
 import JavaScriptAnimated from 'public/icons/animated/javascript.gif'
 
@@ -15,17 +12,13 @@ import TypeScript from 'public/icons/typescript.svg'
 import Python from 'public/icons/python.svg'
 import PythonAnimated from 'public/icons/animated/python.gif'
 
-import C from 'public/icons/c.svg'
 import CSharp from 'public/icons/c-sharp.svg'
-import CPP from 'public/icons/c++.svg'
-import Swift from 'public/icons/swift.svg'
 
 // tools
 import React from 'public/icons/react.svg'
 import Redux from 'public/icons/redux.svg'
 import NodeJS from 'public/icons/nodejs.svg'
 import PostgreSQL from 'public/icons/postgresql.svg'
-import ASPNET from 'public/icons/net-framework.svg'
 import SASS from 'public/icons/sass.svg'
 
 import { SkillType, ANIMATION } from 'common/types'
@@ -118,47 +111,6 @@ const SKILLS: SkillType[] = [
         },
         label: 'C#',
       },
-      {
-        icon: {
-          default: <Image src={Java} alt="Java icon" height={48} width={48} />,
-          animated: (
-            <Image
-              src={JavaAnimated}
-              alt="Java gif"
-              height={48}
-              width={48}
-              style={{
-                maxWidth: '100%',
-                height: 'auto',
-              }}
-            />
-          ),
-        },
-        label: 'Java',
-      },
-      {
-        icon: {
-          default: <Image src={C} alt="C icon" height={48} width={48} />,
-        },
-        label: 'C',
-      },
-      {
-        icon: {
-          default: (
-            <Image src={CPP} alt="C Plus Plus icon" height={48} width={48} />
-          ),
-        },
-        label: 'C++',
-      },
-      {
-        icon: {
-          default: (
-            <Image src={Swift} alt="Swift icon" height={48} width={48} />
-          ),
-          animation: ANIMATION.SHAKE,
-        },
-        label: 'Swift',
-      },
     ],
   },
   {
@@ -204,14 +156,6 @@ const SKILLS: SkillType[] = [
           animation: ANIMATION.ZOOM,
         },
         label: 'PostgreSQL',
-      },
-      {
-        icon: {
-          default: (
-            <Image src={ASPNET} alt="ASP.NET icon" height={48} width={48} />
-          ),
-        },
-        label: 'ASP.NET',
       },
       {
         icon: {

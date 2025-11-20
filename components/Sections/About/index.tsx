@@ -14,13 +14,14 @@ const About = memo(function About() {
         <br />I am Hui&nbsp;Hui!
       </Greeting>
       <Description>
-        Experienced software developer specializing in frontend web development
-        and dedicated to optimizing user experience. With a solid foundation
-        built through internship experiences and a year of full-time employment,
-        I excel in crafting intuitive interfaces and leveraging established
-        technologies to deliver exceptional results. Committed to continuous
-        growth, I eagerly pursue new skills and methodologies to stay ahead in
-        this dynamic industry.
+        Experienced fullstack software engineer dedicated to building scalable
+        applications that deliver exceptional user experiences. With 2+ years of
+        professional experience, I&apos;ve expanded from crafting intuitive
+        interfaces to delivering end-to-end solutions across frontend and
+        backend systems. I excel at solving complex technical challenges,
+        optimizing performance, and leveraging modern technologies to deliver
+        exceptional results. Committed to continuous growth, I eagerly pursue
+        new skills and methodologies to stay ahead in this dynamic industry.
       </Description>
       <ImageContainer>
         <Image
@@ -30,9 +31,9 @@ const About = memo(function About() {
           sizes="100vw"
           style={{
             width: '100%',
-            height: 'auto',
-            objectFit: 'contain',
-            objectPosition: 'right bottom',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
           }}
         />
       </ImageContainer>

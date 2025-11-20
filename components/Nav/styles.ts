@@ -4,7 +4,12 @@ import { BREAKPOINT, NAV_HEIGHT } from 'common/constants'
 export const StyledNav = styled.nav`
   width: 100%;
   height: ${NAV_HEIGHT};
-  background: ${(props) => props.theme.colors.blue[300]};
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
   padding: 5px 50px;
   display: flex;
   align-items: center;
@@ -13,6 +18,62 @@ export const StyledNav = styled.nav`
   left: 0;
   top: 0;
   z-index: 300;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(14, 165, 233, 0.5),
+      rgba(167, 139, 250, 0.5),
+      transparent
+    );
+    animation: flow 4s ease-in-out infinite;
+  }
+
+  @keyframes flow {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scaleX(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
 
   @media screen and (max-width: ${BREAKPOINT}) {
     flex-direction: column;
@@ -95,7 +156,8 @@ const burgerLine = css`
   height: 3px;
   width: 100%;
   border-radius: 10px;
-  background: ${(props) => props.theme.colors.neutral[100]};
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 `
 
 export const BurgerLine1 = styled.span<{ isActive?: boolean }>`

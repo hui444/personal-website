@@ -38,6 +38,14 @@ export const FormContainer = styled.form`
     'message message'
     'button button';
   column-gap: 26px;
+  row-gap: 1rem;
+  padding: 2.5rem;
+  background: ${(props) => props.theme.colors.glass.medium};
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: ${(props) => props.theme.borderRadius};
+  border: 1px solid ${(props) => props.theme.colors.glass.border};
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 
   @media screen and (max-width: ${BREAKPOINT}) {
     grid-template-columns: 1fr;
@@ -49,5 +57,6 @@ export const FormContainer = styled.form`
       'message'
       'message'
       'button';
+    padding: 1.5rem;
   }
 `
