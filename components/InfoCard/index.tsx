@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 
 import Arrow from 'public/arrow/chevron-down.svg'
-import { FADE_POSITION, InfoCardProps } from 'common/types'
+import { InfoCardProps } from 'common/types'
 import { getDuration, stringifyDate } from 'common/helper'
 
 import {
@@ -30,16 +30,12 @@ const InfoCard = ({
   infoColor,
   isDefaultExpanded,
   info,
-  isEnd,
-  hasFade,
   showDuration,
 }: {
   datesColor: CardColors
   infoColor: CardColors
   isDefaultExpanded: boolean
   info: InfoCardProps
-  isEnd?: boolean
-  hasFade?: FADE_POSITION
   showDuration?: boolean
 }) => {
   const disabled =

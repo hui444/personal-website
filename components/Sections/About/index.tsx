@@ -16,7 +16,7 @@ const About = memo(function About() {
       <Description>
         Experienced fullstack software engineer dedicated to building scalable
         applications that deliver exceptional user experiences. With 2+ years of
-        professional experience, I've expanded from crafting intuitive
+        professional experience, I&apos;ve expanded from crafting intuitive
         interfaces to delivering end-to-end solutions across frontend and
         backend systems. I excel at solving complex technical challenges,
         optimizing performance, and leveraging modern technologies to deliver
