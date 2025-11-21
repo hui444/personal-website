@@ -44,11 +44,13 @@ const Contact = memo(function Contact() {
 
   useEffect(() => {
     if (submissionResult) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setSubmissionResult(undefined)
       }, SNACKBAR_ANIMATION_DURATION)
+
+      return () => clearTimeout(timer)
     }
-  })
+  }, [submissionResult])
 
   return (
     <Section title="Contact Me!" isLast section={SECTIONS.CONTACT}>
