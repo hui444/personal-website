@@ -1,14 +1,25 @@
-import { memo, Suspense } from 'react'
-import { EmbededPrototype } from './styles'
+import { memo } from 'react'
+
+import RunTogether from 'assets/images/RunTogether.png'
+import FigmaButton from './FigmaButton'
+import { PrototypeContainer, StyledImage } from './styles'
+
+const FIGMA_URL =
+  'https://www.figma.com/proto/TTDBavJxuk1YxSfkUyxdE3/CS3240-Design-Exercise?kind=proto&node-id=520-28578&page-id=318%3A955&scaling=contain&starting-point-node-id=520%3A28578&t=uikfKfaMLcFO22aI-1'
 
 const RunTogetherPrototype = memo(function RunTogetherPrototype() {
   return (
-    <Suspense fallback={<p>Loading RunTogether Figma Prototype...</p>}>
-      <EmbededPrototype
-        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FTTDBavJxuk1YxSfkUyxdE3%2FCS3240-Design-Exercise%3Fkind%3Dproto%26node-id%3D520-28578%26page-id%3D318%253A955%26scaling%3Dcontain%26starting-point-node-id%3D520%253A28578%26t%3DuikfKfaMLcFO22aI-1"
-        title="RunTogether Project Figma Prototype"
+    <PrototypeContainer>
+      <StyledImage
+        src={RunTogether}
+        alt="RunTogether Figma Prototype Preview"
+        width={1200}
+        height={783}
+        quality={100}
+        priority
       />
-    </Suspense>
+      <FigmaButton url={FIGMA_URL} />
+    </PrototypeContainer>
   )
 })
 

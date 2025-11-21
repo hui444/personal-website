@@ -12,7 +12,7 @@ const RHAppShowcase = () => (
   <StyledImage
     src={SupperCollationFeature}
     alt="Supper Collation Feature UI"
-    width="500"
+    width="400"
   />
 )
 

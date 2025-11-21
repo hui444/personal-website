@@ -1,14 +1,25 @@
-import { memo, Suspense } from 'react'
-import { EmbededPrototype } from './styles'
+import { memo } from 'react'
+
+import HikingHelper from 'assets/images/HikingHelper.png'
+import FigmaButton from './FigmaButton'
+import { PrototypeContainer, StyledImage } from './styles'
+
+const FIGMA_URL =
+  'https://www.figma.com/proto/b5H9IzDdHH5wp5ZCW3FeCo/G3-High-fidelity-prototype?node-id=1301-87522&t=Wepjg9G1L6w9cJm4-1&scaling=scale-down&page-id=1249%3A65643&starting-point-node-id=1301%3A87522'
 
 const HikingHelperPrototype = memo(function HikingHelperPrototype() {
   return (
-    <Suspense fallback={<p>Loading HikingHelper Figma Prototype...</p>}>
-      <EmbededPrototype
-        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fb5H9IzDdHH5wp5ZCW3FeCo%2FG3-High-fidelity-prototype%3Fnode-id%3D1301-87522%26t%3DWepjg9G1L6w9cJm4-1%26scaling%3Dscale-down%26page-id%3D1249%253A65643%26starting-point-node-id%3D1301%253A87522%26"
-        title="HikingHelper Project Figma Prototype"
+    <PrototypeContainer>
+      <StyledImage
+        src={HikingHelper}
+        alt="HikingHelper Figma Prototype Preview"
+        width={1200}
+        height={783}
+        quality={100}
+        priority
       />
-    </Suspense>
+      <FigmaButton url={FIGMA_URL} />
+    </PrototypeContainer>
   )
 })
 
