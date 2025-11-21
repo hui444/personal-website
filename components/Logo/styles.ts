@@ -20,11 +20,6 @@ export const StyledLogo = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(14, 165, 233, 0.2),
-      rgba(167, 139, 250, 0.2)
-    );
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: -1;
@@ -33,9 +28,6 @@ export const StyledLogo = styled.div`
   &:hover {
     color: #ffffff;
     transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
-    border-color: rgba(14, 165, 233, 0.3);
 
     &::before {
       opacity: 1;

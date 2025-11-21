@@ -26,12 +26,16 @@ const OFFSET = SECTION_OFFSET + 5
 const Nav = memo(function Nav() {
   const router = useRouter()
 
-  const getBoundingRectBySection = useCallback(
-    (section: SECTIONS) =>
-      document.querySelector(`.${section}`)?.getBoundingClientRect() ??
-      DEFAULT_BOUNDING_CLIENT_RECT,
-    []
-  )
+  const getBoundingRectBySection = useCallback((section: SECTIONS) => {
+    if (typeof document === 'undefined') {
+      return DEFAULT_BOUNDING_CLIENT_RECT
+    }
+    const element = document.querySelector(`.${section}`)
+    if (!element) {
+      return DEFAULT_BOUNDING_CLIENT_RECT
+    }
+    return element.getBoundingClientRect() ?? DEFAULT_BOUNDING_CLIENT_RECT
+  }, [])
 
   const scrollToSection = useCallback(
     (section: SECTIONS) => {
@@ -62,10 +66,20 @@ const Nav = memo(function Nav() {
   }, [getBoundingRectBySection])
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const timeoutId = setTimeout(() => {
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      handleScroll()
+    }, 100)
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(timeoutId)
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', handleScroll)
+      }
     }
   }, [handleScroll])
 

@@ -10,8 +10,6 @@ export const StyledA = styled.a<{ isActive?: boolean }>`
   padding: 0.5rem 1rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 1;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 
   &::before {
     content: '';
@@ -55,12 +53,6 @@ export const StyledA = styled.a<{ isActive?: boolean }>`
     color: #ffffff;
     font-weight: 700;
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
-
-    &::before {
-      opacity: 1;
-    }
 
     &::after {
       width: 80%;

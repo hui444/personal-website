@@ -6,6 +6,7 @@ const EmbededVideo = styled.iframe`
   height: auto;
   flex-shrink: 0;
   aspect-ratio: 7/4;
+  border: none;
 `
 
 const CaptVReProjectShowcase = () => (
@@ -16,6 +17,7 @@ const CaptVReProjectShowcase = () => (
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerPolicy="strict-origin-when-cross-origin"
       width="500"
+      loading="lazy"
     />
   </Suspense>
 )
