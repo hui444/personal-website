@@ -137,7 +137,7 @@ export const HamburgerButton = styled.div`
   height: 17px;
   width: 22px;
   position: absolute;
-  top: 12px;
+  top: 24px;
   left: 20px;
   z-index: 2;
   display: flex;
